@@ -1,0 +1,114 @@
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Linkedin, Download, MapPin, ExternalLink } from "lucide-react";
+
+export function ContactSection() {
+  return (
+    <section id="contact" className="py-20 md:py-32">
+      <div className="container max-w-4xl mx-auto px-6 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Let's Connect
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+            Interested in connecting with founders, product leaders, and changemakers in tech. 
+            Drop me a message or send a connection invite.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <Card className="bg-gradient-to-br from-accent/20 via-background to-secondary/20 dark:from-accent/10 dark:via-background dark:to-secondary/10">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Email</p>
+                      <a
+                        href="mailto:akhil_neelam@berkeley.edu"
+                        className="text-lg font-medium text-foreground hover:text-highlight transition-colors"
+                        data-testid="link-email-contact"
+                      >
+                        akhil_neelam@berkeley.edu
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <Linkedin className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">LinkedIn</p>
+                      <a
+                        href="https://linkedin.com/in/akhilneelam"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-medium text-foreground hover:text-highlight transition-colors flex items-center gap-2"
+                        data-testid="link-linkedin-contact"
+                      >
+                        linkedin.com/in/akhilneelam
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Location</p>
+                      <p className="text-lg font-medium text-foreground" data-testid="text-location">
+                        San Francisco Bay Area
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-center items-center md:items-end gap-4">
+                  <p className="text-muted-foreground text-center md:text-right mb-4">
+                    Looking for my resume? Download the latest version here.
+                  </p>
+                  <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-contact">
+                    <Button size="lg" className="gap-2 w-full md:w-auto">
+                      <Download className="w-5 h-5" />
+                      Download Resume
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-sm text-muted-foreground">
+            &copy; {new Date().getFullYear()} Akhil Neelam. Built with care.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
