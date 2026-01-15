@@ -27,7 +27,7 @@ export function HeroSection() {
             className="order-2 lg:order-1"
           >
             <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4 font-sans">
-              UC Berkeley Haas MBA
+              UC Berkeley MBA
             </p>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
               I scale impact through{" "}
