@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mic, Globe, Award, BookOpen } from "lucide-react";
+import { Mic, Globe, Award, BookOpen, ArrowUpRight } from "lucide-react";
 
 const speakingHighlights = [
   {
@@ -10,6 +10,7 @@ const speakingHighlights = [
     type: "Training & Steering Committee",
     description: "Co-facilitated training on AI for social impact as Steering Committee Member",
     icon: Award,
+    link: "https://asiapacific.unwomen.org/sites/default/files/2025-12/ap-20250432996-ai-school-grad-booklet-s.pdf",
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const speakingHighlights = [
     type: "Policy Influence",
     description: "Research and awareness projects influencing 5+ UN consultations",
     icon: Globe,
+    link: null,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const speakingHighlights = [
     type: "Keynote Speaking",
     description: "Strategized messaging and positioning at 15+ global forums including UN Women and G20",
     icon: Mic,
+    link: null,
   },
   {
     id: 4,
@@ -31,15 +34,31 @@ const speakingHighlights = [
     type: "AI Innovation",
     description: "Co-designed a custom GPT for a UN convening on gender equality",
     icon: BookOpen,
+    link: "https://asiapacific.unwomen.org/en/stories/feature-story/2025/01/young-leaders-and-un-women-asia-and-the-pacific",
   },
 ];
 
 const publications = [
-  "South Asia's women leaders: Disaster management, gender equality and COVID-19",
-  "Women Voters in India Play a Significant Role in its Electoral System",
-  "Harini Amarasuriya: An Academician Rises to Sri Lanka's Premiership",
-  "Gender Analysis of Nepal's Local Elections May 2022",
-  "Safeguarding digital spaces in Indian/South Asian politics",
+  {
+    title: "South Asia's women leaders: Disaster management, gender equality and COVID-19",
+    link: null,
+  },
+  {
+    title: "Women Voters in India Play a Significant Role in its Electoral System",
+    link: null,
+  },
+  {
+    title: "Harini Amarasuriya: An Academician Rises to Sri Lanka's Premiership",
+    link: null,
+  },
+  {
+    title: "Gender Analysis of Nepal's Local Elections May 2022",
+    link: null,
+  },
+  {
+    title: "Safeguarding digital spaces in Indian/South Asian politics",
+    link: null,
+  },
 ];
 
 export function SpeakingSection() {
@@ -77,10 +96,23 @@ export function SpeakingSection() {
                     <div className="w-12 h-12 rounded-lg bg-secondary/50 dark:bg-secondary/30 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-6 h-6 text-secondary-foreground dark:text-secondary" />
                     </div>
-                    <div>
-                      <Badge variant="outline" className="mb-2 text-xs" data-testid={`badge-speaking-type-${item.id}`}>
-                        {item.type}
-                      </Badge>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <Badge variant="outline" className="mb-2 text-xs" data-testid={`badge-speaking-type-${item.id}`}>
+                          {item.type}
+                        </Badge>
+                        {item.link && (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-highlight transition-colors"
+                            data-testid={`link-speaking-${item.id}`}
+                          >
+                            <ArrowUpRight className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
                       <h3 className="font-serif text-lg font-semibold text-foreground mb-2" data-testid={`text-speaking-title-${item.id}`}>
                         {item.title}
                       </h3>
@@ -116,9 +148,22 @@ export function SpeakingSection() {
                 className="flex items-start gap-3 group"
               >
                 <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                <span className="text-muted-foreground group-hover:text-foreground transition-colors" data-testid={`text-publication-${index}`}>
-                  {pub}
-                </span>
+                {pub.link ? (
+                  <a
+                    href={pub.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground group-hover:text-highlight transition-colors flex items-center gap-2"
+                    data-testid={`link-publication-${index}`}
+                  >
+                    <span>{pub.title}</span>
+                    <ArrowUpRight className="w-4 h-4 flex-shrink-0" />
+                  </a>
+                ) : (
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors" data-testid={`text-publication-${index}`}>
+                    {pub.title}
+                  </span>
+                )}
               </motion.li>
             ))}
           </ul>

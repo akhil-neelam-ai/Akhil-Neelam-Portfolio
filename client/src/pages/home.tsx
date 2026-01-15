@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/hero-section";
 import { WorkSection } from "@/components/work-section";
 import { SpeakingSection } from "@/components/speaking-section";
 import { ExperienceSection } from "@/components/experience-section";
-import { BioSection } from "@/components/bio-section";
 import { PersonalSection } from "@/components/personal-section";
 import { ContactSection } from "@/components/contact-section";
 
@@ -18,7 +17,6 @@ export default function Home() {
           <WorkSection />
           <SpeakingSection />
           <ExperienceSection />
-          <BioSection />
           <PersonalSection />
           <ContactSection />
         </div>

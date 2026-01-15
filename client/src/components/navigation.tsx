@@ -9,7 +9,6 @@ const navItems = [
   { id: "work", label: "Work" },
   { id: "speaking", label: "Speaking" },
   { id: "experience", label: "Experience" },
-  { id: "bio", label: "Bio" },
   { id: "personal", label: "Personal" },
   { id: "contact", label: "Contact" },
 ];

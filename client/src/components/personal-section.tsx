@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Plane, Award, Heart, BookOpen } from "lucide-react";
+import { Plane, BookOpen } from "lucide-react";
 
 const interests = [
   {
@@ -9,36 +9,10 @@ const interests = [
     description: "Backpacked across 14 countries and 20 Indian states, experiencing diverse cultures and perspectives.",
   },
   {
-    icon: Heart,
-    title: "Aspiring Runner",
-    description: "Currently training for a 10K, building discipline and endurance one mile at a time.",
-  },
-  {
     icon: BookOpen,
     title: "Lifelong Learner",
     description: "From AI tools like Claude and CustomGPTs to emerging tech, always exploring new frontiers.",
   },
-  {
-    icon: Award,
-    title: "Fellowship Recipient",
-    description: "Young India Fellowship, GRÓ GEST Fellowship, altMBA Leaders of the World Scholarship.",
-  },
-];
-
-const certifications = [
-  "Management Consulting Specialization",
-  "altMBA (Leaders of the World Scholarship)",
-  "AI for Business Certificate (pursuing)",
-];
-
-const tools = [
-  "Azure DevOps",
-  "Lovable AI",
-  "Claude Code",
-  "CustomGPTs",
-  "Excel",
-  "Wix",
-  "Canva",
 ];
 
 export function PersonalSection() {
@@ -61,7 +35,7 @@ export function PersonalSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {interests.map((item, index) => (
             <motion.div
               key={index}
@@ -89,70 +63,6 @@ export function PersonalSection() {
               </Card>
             </motion.div>
           ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-4" data-testid="heading-certifications">
-                  Certifications & Awards
-                </h3>
-                <ul className="space-y-3">
-                  {certifications.map((cert, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="w-2 h-2 rounded-full bg-highlight mt-2 flex-shrink-0" />
-                      <span className="text-muted-foreground">{cert}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 pt-4 border-t border-border">
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Honors:</span>{" "}
-                    MHRD-CSS Scholarship, Full Scholarship at Young India Fellowship, 
-                    Youth Co:Lab Springboard Elevate Fellowship
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
-                  Tools & Technologies
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {tools.map((tool, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1.5 bg-secondary/50 dark:bg-secondary/30 rounded-full text-sm text-secondary-foreground dark:text-secondary"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 pt-4 border-t border-border">
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">Also proficient in:</span>{" "}
-                    User research methodologies, A/B testing, product analytics, 
-                    and cross-functional team collaboration
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
       </div>
     </section>

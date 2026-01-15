@@ -59,21 +59,6 @@ export function HeroSection() {
                 </Button>
               </a>
             </div>
-
-            <div className="mt-12 grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              <div data-testid="stat-volunteers">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">140+</p>
-                <p className="text-sm text-muted-foreground mt-1">Global volunteers</p>
-              </div>
-              <div data-testid="stat-students">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">3M</p>
-                <p className="text-sm text-muted-foreground mt-1">Students reached</p>
-              </div>
-              <div data-testid="stat-forums">
-                <p className="font-serif text-3xl md:text-4xl font-bold text-foreground">15+</p>
-                <p className="text-sm text-muted-foreground mt-1">Global forums</p>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
