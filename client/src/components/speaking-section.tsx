@@ -24,7 +24,7 @@ const speakingHighlights = [
     id: 3,
     title: "G20 & Global Forums",
     type: "Keynote Speaking",
-    description: "Strategized messaging and positioning at 15+ global forums including UN Women and G20",
+    description: "Spoke at G20, UN platforms and 15+ global platforms",
     icon: Mic,
     link: null,
   },
