@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mic, Globe, Award, BookOpen, ArrowUpRight } from "lucide-react";
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 // Import speaking images
 import speakingImg1 from "@assets/JP_00562_1768548157044.JPG";
@@ -85,8 +86,9 @@ export function SpeakingSection() {
   const [emblaRef] = useEmblaCarousel({ 
     align: 'start',
     containScroll: 'trimSnaps',
-    dragFree: true
-  });
+    dragFree: true,
+    loop: true
+  }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
 
   return (
     <section id="speaking" className="py-20 md:py-32">
