@@ -61,7 +61,7 @@ const speakingHighlights = [
 
 const publications = [
   {
-    title: "Worth Asking (Book)",
+    title: "Worth Asking: Interviews with Women MPs and Ministers in South Asia (Book)",
     link: "https://www.cgapsouthasia.org/worth-asking-book",
   },
   {
