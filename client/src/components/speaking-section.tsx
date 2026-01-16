@@ -61,24 +61,16 @@ const speakingHighlights = [
 
 const publications = [
   {
-    title: "South Asia's women leaders: Disaster management, gender equality and COVID-19",
-    link: null,
+    title: "Worth Asking (Book)",
+    link: "https://www.cgapsouthasia.org/worth-asking-book",
   },
   {
-    title: "Women Voters in India Play a Significant Role in its Electoral System",
-    link: null,
+    title: "Harini Amarasuriya: An Academician Rises to Sri Lanka's Premiership - The Diplomat",
+    link: "https://thediplomat.com/2024/09/harini-amarasuriya-an-academician-rises-to-sri-lankas-premiership/",
   },
   {
-    title: "Harini Amarasuriya: An Academician Rises to Sri Lanka's Premiership",
-    link: null,
-  },
-  {
-    title: "Gender Analysis of Nepal's Local Elections May 2022",
-    link: null,
-  },
-  {
-    title: "Safeguarding digital spaces in Indian/South Asian politics",
-    link: null,
+    title: "Safeguarding digital spaces in Indian/South Asian politics - United Nations",
+    link: "https://asiapacific.unwomen.org/en/stories/feature-story/2024/10/beijing30-youth-blog-safeguarding-digital-spaces-in-indiansouth-asian-politics",
   },
 ];
 
@@ -188,7 +180,7 @@ export function SpeakingSection() {
           className="bg-card rounded-xl border border-card-border p-8"
         >
           <h3 className="font-serif text-2xl font-bold text-foreground mb-6" data-testid="heading-publications">
-            Publications & Writing
+            Select Publications
           </h3>
           <ul className="space-y-4">
             {publications.map((pub, index) => (
