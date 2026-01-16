@@ -2,6 +2,26 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mic, Globe, Award, BookOpen, ArrowUpRight } from "lucide-react";
+import useEmblaCarousel from 'embla-carousel-react';
+
+// Import speaking images
+import speakingImg1 from "@assets/JP_00562_1768548157044.JPG";
+import speakingImg2 from "@assets/DSC01656_(1)_(1)_1768549204916.jpg";
+import speakingImg3 from "@assets/BV_2_(1)_1768549219824.jpg";
+import speakingImg4 from "@assets/Presenting_my_book_to_the_President_and_First_Lady_1768549785622.jpg";
+import speakingImg5 from "@assets/BV_1_(1)_1768549802913.jpg";
+import speakingImg6 from "@assets/Presenting_my_research_study_during_GEST_1768549852733.jpg";
+import speakingImg7 from "@assets/ChangeMaker_Award,_Dec_2024_1768549946899.jpg";
+
+const galleryImages = [
+  { src: speakingImg1, alt: "Speaking at Showcase Expo Hyderabad" },
+  { src: speakingImg2, alt: "Panelist at UPLIFT Leadership Conclave" },
+  { src: speakingImg3, alt: "Presentation featuring CGAP" },
+  { src: speakingImg4, alt: "Presenting book to President and First Lady" },
+  { src: speakingImg5, alt: "Reviewing Beyond Victims publication" },
+  { src: speakingImg6, alt: "Presenting research during GEST" },
+  { src: speakingImg7, alt: "Receiving ChangeMaker Award 2024" },
+];
 
 const speakingHighlights = [
   {
@@ -62,6 +82,12 @@ const publications = [
 ];
 
 export function SpeakingSection() {
+  const [emblaRef] = useEmblaCarousel({ 
+    align: 'start',
+    containScroll: 'trimSnaps',
+    dragFree: true
+  });
+
   return (
     <section id="speaking" className="py-20 md:py-32">
       <div className="container max-w-6xl mx-auto px-6 md:px-8">
@@ -80,6 +106,31 @@ export function SpeakingSection() {
             at global forums and through thought leadership.
           </p>
         </motion.div>
+
+        {/* Image Gallery Scroll */}
+        <div className="mb-20 overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-4">
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={index}
+                className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <div className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           {speakingHighlights.map((item, index) => (
