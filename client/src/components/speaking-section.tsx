@@ -80,7 +80,7 @@ export function SpeakingSection() {
     containScroll: 'trimSnaps',
     dragFree: true,
     loop: true
-  }, [Autoplay({ delay: 0, stopOnInteraction: false, playOnInit: true, speed: 1 })]);
+  }, [Autoplay({ delay: 0, stopOnInteraction: false, playOnInit: true })]);
 
   return (
     <section id="speaking" className="py-20 md:py-32">
