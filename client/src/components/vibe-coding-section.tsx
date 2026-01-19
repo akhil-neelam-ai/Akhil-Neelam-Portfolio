@@ -27,7 +27,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "AI-Powered Newsletter Briefing via Alexa",
+    title: "Daily Newsletter Briefing via Alexa",
     briefDescription: "Automated daily tech briefings delivered through Alexa using AI summarization. Processes 150+ newsletters monthly, saving 15 minutes every morning through intelligent content aggregation and natural language processing.",
     techStack: ["n8n", "Claude AI", "Gmail API", "Airtable", "Alexa Skills", "RSS", "REST API", "Workflow Automation"],
     overview: "An end-to-end automation that transforms email newsletter overload into concise audio briefings delivered via Amazon Alexa. The system monitors Gmail for incoming newsletters, uses Claude AI to generate audio-friendly summaries, stores them in a structured database, and serves them through a custom RSS feed that Alexa reads as a Flash Briefing.",
@@ -141,7 +141,7 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
               <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                 <Button variant="default" className="gap-2" data-testid="button-project-demo">
                   <ExternalLink className="w-4 h-4" />
-                  View Demo
+                  See this in action
                 </Button>
               </a>
             )}
