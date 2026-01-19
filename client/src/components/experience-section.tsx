@@ -39,7 +39,7 @@ const experiences: Experience[] = [
     id: 4,
     company: "Government of Andhra Pradesh",
     role: "Consultant, Project Management Unit",
-    period: "Sep 2017 - Jun 2020",
+    period: "Sep 2017 - Oct 2019",
     location: "India",
     description: "Predictive ML based school dropout prediction and retention; Product Customisation and Rollout of AI based EdTech products across public schools",
   },
