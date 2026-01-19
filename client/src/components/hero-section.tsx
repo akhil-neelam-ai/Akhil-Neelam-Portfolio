@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroPhoto from "@assets/DSC06633_1768788442311.JPG";
+import heroPhoto from "@assets/DSC06633_2_1768790401910.jpg";
 
 export function HeroSection() {
   const scrollToWork = () => {
@@ -74,13 +74,13 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="relative w-full max-w-md aspect-square">
+            <div className="relative w-full max-w-sm aspect-[3/4]">
               <div className="absolute -inset-4 bg-gradient-to-br from-accent/40 to-secondary/40 rounded-3xl blur-2xl opacity-50" />
               <div className="relative h-full w-full bg-card rounded-2xl overflow-hidden shadow-lg border border-card-border group">
                 <img
                   src={heroPhoto}
                   alt="Akhil Neelam"
-                  className="w-full h-full object-cover object-[center_20%]"
+                  className="w-full h-full object-cover object-top"
                   data-testid="img-hero-avatar"
                 />
               </div>
