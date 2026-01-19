@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 import heroPhoto from "@assets/DSC06633_2_1768790401910.jpg";
 
 export function HeroSection() {
@@ -45,26 +44,6 @@ export function HeroSection() {
                 customisation to building an impact startup has been about scaling impact 
                 through technology.
               </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-hero">
-                <Button size="lg" className="gap-2">
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </Button>
-              </a>
-              <a
-                href="https://linkedin.com/in/akhilneelam"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="link-linkedin-hero"
-              >
-                <Button variant="outline" size="lg" className="gap-2">
-                  <Linkedin className="h-4 w-4" />
-                  Connect on LinkedIn
-                </Button>
-              </a>
             </div>
           </motion.div>
 
