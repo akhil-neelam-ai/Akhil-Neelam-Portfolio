@@ -30,8 +30,7 @@ export function PersonalSection() {
             Interests
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Always building, always tinkering. When I'm not building products or championing social causes, 
-            here's what keeps me inspired and grounded.
+            Always building, always tinkering. Here's what keeps me inspired and grounded.
           </p>
         </motion.div>
 
