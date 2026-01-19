@@ -1,29 +1,9 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDown, Download, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
 import heroPhoto from "@assets/DSC06633_1768788442311.JPG";
-import heroAcrylic from "@assets/generated_images/acrylic_painting_of_akhil_neelam_speaking_at_a_conference..png";
-import heroInk from "@assets/generated_images/ink_illustration_of_akhil_neelam_speaking_at_a_conference..png";
-import heroWatercolor from "@assets/generated_images/watercolor_painting_of_akhil_neelam_speaking_at_a_conference..png";
-
-const styles = [
-  { id: 'photo', name: 'Photography', image: heroPhoto },
-  { id: 'acrylic', name: 'Acrylic Painting', image: heroAcrylic },
-  { id: 'ink', name: 'Ink Illustration', image: heroInk },
-  { id: 'watercolor', name: 'Watercolor Painting', image: heroWatercolor },
-];
 
 export function HeroSection() {
-  const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentStyleIndex((prev) => (prev + 1) % styles.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   const scrollToWork = () => {
     const element = document.getElementById("work");
     if (element) {
@@ -50,8 +30,8 @@ export function HeroSection() {
               UC Berkeley MBA
             </p>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
-              I scale impact through{" "}
-              <span className="text-highlight">technology</span>.
+              Scaling Impact through{" "}
+              <span className="text-highlight">technology</span>
             </h1>
             <div className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-sans space-y-4">
               <p>
@@ -97,28 +77,12 @@ export function HeroSection() {
             <div className="relative w-full max-w-md aspect-square">
               <div className="absolute -inset-4 bg-gradient-to-br from-accent/40 to-secondary/40 rounded-3xl blur-2xl opacity-50" />
               <div className="relative h-full w-full bg-card rounded-2xl overflow-hidden shadow-lg border border-card-border group">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={styles[currentStyleIndex].id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1 }}
-                    className="absolute inset-0"
-                  >
-                    <img
-                      src={styles[currentStyleIndex].image}
-                      alt={styles[currentStyleIndex].name}
-                      className="w-full h-full object-cover object-[center_20%]"
-                      data-testid="img-hero-avatar"
-                    />
-                    <div className="absolute bottom-4 right-4">
-                      <div className="bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-foreground/70 font-sans border border-border">
-                        {styles[currentStyleIndex].name}
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                <img
+                  src={heroPhoto}
+                  alt="Akhil Neelam"
+                  className="w-full h-full object-cover object-[center_20%]"
+                  data-testid="img-hero-avatar"
+                />
               </div>
             </div>
           </motion.div>
