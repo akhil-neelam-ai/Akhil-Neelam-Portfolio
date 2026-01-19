@@ -16,10 +16,10 @@ export default function Home() {
         <div className="pt-16 lg:pt-0">
           <HeroSection />
           <WorkSection />
-          <SpeakingSection />
-          <ExperienceSection />
-          <PersonalSection />
           <VibeCodingSection />
+          <ExperienceSection />
+          <SpeakingSection />
+          <PersonalSection />
           <ContactSection />
         </div>
       </main>
