@@ -44,8 +44,8 @@ const projects: Project[] = [
     overview: "A centralized, real-time event discovery engine designed to navigate the fragmented ecosystem of UC Berkeley’s campus life. By leveraging the Gemini 2.0 Flash model with Google Search grounding, the application dynamically crawls, synthesizes, and standardizes disparate departmental calendars—ranging from Computer Science seminars to Anthropology workshops—into a single, high-performance interface.",
     challenge: "UC Berkeley hosts hundreds of world-class events weekly, but the information is siloed across dozens of departmental subdomains (CDSS, Engineering, CE3, etc.), each using different web formats and scheduling tools. For students and researchers, staying informed meant manually checking 10+ bookmarks daily or relying on word-of-mouth, often resulting in missed opportunities for interdisciplinary collaboration and campus engagement.",
     solution: "I architected a \"vibe-coded\" discovery platform that replaces traditional database scraping with real-time AI reasoning:\n\n1. AI Search Grounding: Integrates Gemini’s search tools to perform live queries across specific high-priority UC Berkeley domains.\n2. Unstructured-to-Structured Pipeline: Transforms chaotic web snippets into a clean, typed JSON schema for a consistent UI experience.\n3. Contextual Filtering: Natural language filter system allowing users to toggle between disciplines or timeframes.\n4. Source Attribution: Automatically extracts and displays grounding metadata with direct links to original pages.\n5. Modern Stack: Built using React 19 and Tailwind CSS with a mobile-responsive \"Berkeley Blue & Gold\" aesthetic.\n\nThe system compresses 20 minutes of manual browsing into a 5-second, AI-curated briefing of everything happening on campus.",
-    demoLink: "#",
-    githubLink: "#",
+    demoLink: "https://calevents-discovery.vercel.app/",
+    githubLink: "https://github.com/akhil-neelam-ai/Cal-Events-Discovery",
   },
 ];
 
@@ -160,7 +160,7 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
               <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="gap-2" data-testid="button-project-github">
                   <Github className="w-4 h-4" />
-                  Step-by-Step Guide
+                  {project.id === 2 ? "GitHub Repo" : "Step-by-Step Guide"}
                 </Button>
               </a>
             )}
