@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Plane, BookOpen } from "lucide-react";
+import { Plane, Code } from "lucide-react";
 
 const interests = [
   {
@@ -9,7 +9,7 @@ const interests = [
     description: "Backpacked across 14 countries and 20 Indian states, experiencing diverse cultures and perspectives.",
   },
   {
-    icon: BookOpen,
+    icon: Code,
     title: "Vibe Coding",
     description: "Building apps with Claude Code, Replit, and other AI-powered tools—whether it's boosting personal productivity or just having fun with side projects.",
   },
