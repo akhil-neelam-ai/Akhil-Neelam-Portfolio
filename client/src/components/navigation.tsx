@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Linkedin, Mail, Download } from "lucide-react";
+import { Menu, X, Linkedin, Mail, Download, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
@@ -109,6 +109,20 @@ export function Navigation() {
                 <Mail className="h-5 w-5" />
               </Button>
             </a>
+            <a
+              href="https://github.com/akhil-neelam-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-github-sidebar"
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-sidebar-foreground hover:bg-sidebar-accent"
+              >
+                <Github className="h-5 w-5" />
+              </Button>
+            </a>
           </div>
           <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-sidebar">
             <Button
@@ -192,6 +206,19 @@ export function Navigation() {
                       className="text-sidebar-foreground hover:bg-sidebar-accent"
                     >
                       <Mail className="h-5 w-5" />
+                    </Button>
+                  </a>
+                  <a
+                    href="https://github.com/akhil-neelam-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-sidebar-foreground hover:bg-sidebar-accent"
+                    >
+                      <Github className="h-5 w-5" />
                     </Button>
                   </a>
                 </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Download, MapPin, ExternalLink } from "lucide-react";
+import { Mail, Linkedin, Download, MapPin, ExternalLink, Github } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -32,7 +32,7 @@ export function ContactSection() {
           <Card className="bg-gradient-to-br from-accent/20 via-background to-secondary/20 dark:from-accent/10 dark:via-background dark:to-secondary/10">
             <CardContent className="p-8 md:p-12">
               <div className="flex flex-col gap-8">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="flex flex-col items-center text-center p-4">
                     <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-3">
                       <Mail className="w-6 h-6 text-primary-foreground" />
@@ -60,6 +60,23 @@ export function ContactSection() {
                       data-testid="link-linkedin-contact"
                     >
                       /in/akhilneelam
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+
+                  <div className="flex flex-col items-center text-center p-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-3">
+                      <Github className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-1">GitHub</p>
+                    <a
+                      href="https://github.com/akhil-neelam-ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base font-medium text-foreground hover:text-highlight transition-colors inline-flex items-center gap-1"
+                      data-testid="link-github-contact"
+                    >
+                      akhil-neelam-ai
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
