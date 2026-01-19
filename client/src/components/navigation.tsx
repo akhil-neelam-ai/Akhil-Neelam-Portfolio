@@ -59,7 +59,7 @@ export function Navigation() {
             Akhil Neelam
           </h1>
           <p className="text-sm text-sidebar-foreground/70 mt-1">
-            MBA | Founder | Product
+            MBA | Founder | Technology
           </p>
         </div>
 
