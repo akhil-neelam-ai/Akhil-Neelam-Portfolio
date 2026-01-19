@@ -52,7 +52,7 @@ const speakingHighlights = [
   {
     id: 4,
     title: "Custom GPT for UN Convening",
-    type: "AI Innovation",
+    type: "AI",
     description: "Co-designed a custom GPT for a UN convening on gender equality",
     icon: BookOpen,
     link: "https://asiapacific.unwomen.org/en/stories/feature-story/2025/01/young-leaders-and-un-women-asia-and-the-pacific",
