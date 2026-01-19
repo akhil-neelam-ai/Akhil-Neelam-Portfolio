@@ -19,7 +19,7 @@ const projects = [
     title: "Women Politicians Repository",
     organization: "CGAP x J.P. Morgan",
     role: "Co-founder & Director",
-    description: "Defined product vision and executed partnership with J.P. Morgan to build a first-of-its-kind online repository for aspiring women politicians in South Asia. Created a scalable CMS platform democratizing access for 10K+ users.",
+    description: "Defined product vision and executed partnership with J.P. Morgan to build a first-of-its-kind CMS platform serving as an online repository for aspiring women politicians in South Asia. Reached 10K+ users.",
     tags: ["Product Strategy", "Partnerships", "Social Impact"],
     icon: Users,
     link: "https://www.cgapsouthasia.org",
