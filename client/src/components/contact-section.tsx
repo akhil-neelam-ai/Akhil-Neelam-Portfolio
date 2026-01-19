@@ -99,7 +99,7 @@ export function ContactSection() {
           className="mt-16 text-center"
         >
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Akhil Neelam. Built with care.
+            &copy; {new Date().getFullYear()} Akhil Neelam. Built using AI.
           </p>
         </motion.div>
       </div>
