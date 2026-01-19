@@ -31,17 +31,17 @@ export function ContactSection() {
         >
           <Card className="bg-gradient-to-br from-accent/20 via-background to-secondary/20 dark:from-accent/10 dark:via-background dark:to-secondary/10">
             <CardContent className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="flex flex-col gap-8">
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
                       <Mail className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm text-muted-foreground mb-1">Email</p>
                       <a
                         href="mailto:akhil_neelam@berkeley.edu"
-                        className="text-lg font-medium text-foreground hover:text-highlight transition-colors"
+                        className="text-base md:text-lg font-medium text-foreground hover:text-highlight transition-colors break-all"
                         data-testid="link-email-contact"
                       >
                         akhil_neelam@berkeley.edu
@@ -49,44 +49,44 @@ export function ContactSection() {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
                       <Linkedin className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm text-muted-foreground mb-1">LinkedIn</p>
                       <a
                         href="https://linkedin.com/in/akhilneelam"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-lg font-medium text-foreground hover:text-highlight transition-colors flex items-center gap-2"
+                        className="text-base md:text-lg font-medium text-foreground hover:text-highlight transition-colors flex items-center gap-2 break-all"
                         data-testid="link-linkedin-contact"
                       >
                         linkedin.com/in/akhilneelam
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-4 h-4 flex-shrink-0" />
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm text-muted-foreground mb-1">Location</p>
-                      <p className="text-lg font-medium text-foreground" data-testid="text-location">
+                      <p className="text-base md:text-lg font-medium text-foreground" data-testid="text-location">
                         San Francisco Bay Area
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-center items-center md:items-end gap-4">
-                  <p className="text-muted-foreground text-center md:text-right mb-4">
+                <div className="flex flex-col items-center gap-4 pt-4 border-t border-border">
+                  <p className="text-muted-foreground text-center">
                     Looking for my resume? Download the latest version here.
                   </p>
                   <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-contact">
-                    <Button size="lg" className="gap-2 w-full md:w-auto">
+                    <Button size="lg" className="gap-2">
                       <Download className="w-5 h-5" />
                       Download Resume
                     </Button>
