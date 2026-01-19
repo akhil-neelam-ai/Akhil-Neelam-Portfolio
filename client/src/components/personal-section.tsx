@@ -5,7 +5,7 @@ import { Plane, Code } from "lucide-react";
 const interests = [
   {
     icon: Plane,
-    title: "Explorer",
+    title: "Travel & Culture",
     description: "Backpacked across 14 countries and 20 Indian states, experiencing diverse cultures and perspectives.",
   },
   {
