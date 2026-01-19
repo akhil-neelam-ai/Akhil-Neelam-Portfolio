@@ -188,7 +188,7 @@ export function VibeCodingSection() {
             Vibe Coding Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Side projects built with AI-powered tools—solving real problems while having fun with emerging tech.
+            Scrappy AI prototypes built to test ideas quickly, learn faster, and ship useful tools
           </p>
         </motion.div>
 
