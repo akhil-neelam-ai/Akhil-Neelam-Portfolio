@@ -9,7 +9,7 @@ const projects = [
     title: "AI-Powered Census Automation",
     organization: "Uniblox (InsurTech Startup)",
     role: "Pre-MBA Product Intern",
-    description: "Led 3 ML engineers for an AI-powered product that automated messy census file parsing for insurance brokers and carriers. Led daily bug triage and LLM fine-tuning that cut compute load by 85%.",
+    description: "Collaborated with engineers and data scientists to scope product features and analyze case data, shipping LLM fine-tuning that optimized the NLP pipeline for insurance workflow automation—reducing compute costs and improving processing efficiency.",
     tags: ["AI/ML", "Product Management", "InsurTech"],
     icon: Bot,
     link: null,
