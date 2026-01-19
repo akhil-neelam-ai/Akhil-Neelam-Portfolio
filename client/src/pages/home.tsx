@@ -4,6 +4,7 @@ import { WorkSection } from "@/components/work-section";
 import { SpeakingSection } from "@/components/speaking-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { PersonalSection } from "@/components/personal-section";
+import { VibeCodingSection } from "@/components/vibe-coding-section";
 import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
           <SpeakingSection />
           <ExperienceSection />
           <PersonalSection />
+          <VibeCodingSection />
           <ContactSection />
         </div>
       </main>
