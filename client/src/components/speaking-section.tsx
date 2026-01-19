@@ -29,7 +29,7 @@ const speakingHighlights = [
     id: 1,
     title: "UN Women Asia-Pacific AI School",
     type: "Steering Committee/ Advisor",
-    description: "Co-facilitated training on AI for social impact as Steering Committee Member",
+    description: "Co-designed and facilitated training on AI for social impact for young professionals and policy leaders in APAC",
     icon: Award,
     link: "https://asiapacific.unwomen.org/sites/default/files/2025-12/ap-20250432996-ai-school-grad-booklet-s.pdf",
   },
