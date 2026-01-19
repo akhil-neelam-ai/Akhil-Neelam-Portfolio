@@ -1,9 +1,29 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, Download, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/Akhil-02_(1)_1768006871201.png";
+import { useState, useEffect } from "react";
+import heroPhoto from "@assets/DSC06633_1768788442311.JPG";
+import heroAcrylic from "@assets/generated_images/acrylic_painting_of_akhil_neelam_speaking_at_a_conference..png";
+import heroInk from "@assets/generated_images/ink_illustration_of_akhil_neelam_speaking_at_a_conference..png";
+import heroWatercolor from "@assets/generated_images/watercolor_painting_of_akhil_neelam_speaking_at_a_conference..png";
+
+const styles = [
+  { id: 'photo', name: 'Photography', image: heroPhoto },
+  { id: 'acrylic', name: 'Acrylic Painting', image: heroAcrylic },
+  { id: 'ink', name: 'Ink Illustration', image: heroInk },
+  { id: 'watercolor', name: 'Watercolor Painting', image: heroWatercolor },
+];
 
 export function HeroSection() {
+  const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStyleIndex((prev) => (prev + 1) % styles.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToWork = () => {
     const element = document.getElementById("work");
     if (element) {
@@ -33,12 +53,19 @@ export function HeroSection() {
               I scale impact through{" "}
               <span className="text-highlight">technology</span>.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-sans">
-              Hi, I'm <span className="text-foreground font-semibold">Akhil Neelam</span>. 
-              Co-founder of South Asia's first think tank on gender & politics. 
-              I'm pivoting into product management roles where I can translate 
-              user insights into strategy and build human-centered products with measurable impact.
-            </p>
+            <div className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 font-sans space-y-4">
+              <p>
+                I’m a full-time MBA student at UC Berkeley Haas School of Business. 
+                Prior to business school, I co-founded South Asia’s only volunteer-led 
+                think tank on gender & politics, growing 140+ members across 14 countries 
+                and building a global network of change-makers.
+              </p>
+              <p>
+                My journey, from building AI partnerships in government to leading product 
+                customisation to building an impact startup has been about scaling impact 
+                through technology.
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4">
               <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-hero">
@@ -67,15 +94,31 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="order-1 lg:order-2 flex justify-center"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-accent/40 to-secondary/40 rounded-3xl blur-2xl" />
-              <div className="relative bg-card rounded-2xl p-3 shadow-lg border border-card-border">
-                <img
-                  src={heroImage}
-                  alt="Akhil Neelam"
-                  className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-cover rounded-xl"
-                  data-testid="img-hero-avatar"
-                />
+            <div className="relative w-full max-w-md aspect-square">
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/40 to-secondary/40 rounded-3xl blur-2xl opacity-50" />
+              <div className="relative h-full w-full bg-card rounded-2xl overflow-hidden shadow-lg border border-card-border group">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={styles[currentStyleIndex].id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="absolute inset-0"
+                  >
+                    <img
+                      src={styles[currentStyleIndex].image}
+                      alt={styles[currentStyleIndex].name}
+                      className="w-full h-full object-cover object-[center_20%]"
+                      data-testid="img-hero-avatar"
+                    />
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-foreground/70 font-sans border border-border">
+                        {styles[currentStyleIndex].name}
+                      </div>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>
