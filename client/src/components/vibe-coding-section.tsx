@@ -92,11 +92,11 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-highlight/20 flex items-center justify-center">
+          <div className="flex flex-col gap-3 mb-2">
+            <div className="w-10 h-10 rounded-lg bg-highlight/20 flex items-center justify-center flex-shrink-0">
               <Sparkles className="w-5 h-5 text-highlight" />
             </div>
-            <DialogTitle className="font-serif text-xl md:text-2xl">{project.title}</DialogTitle>
+            <DialogTitle className="font-serif text-xl md:text-2xl text-left">{project.title}</DialogTitle>
           </div>
           <DialogDescription className="sr-only">
             Details about {project.title}
