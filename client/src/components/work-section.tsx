@@ -29,7 +29,7 @@ const projects = [
     title: "WhatsApp Learning Bot",
     organization: "Central Square Foundation",
     role: "Project Manager",
-    description: "Spearheaded product customization (content pacing, multi-language, low-data settings) by collaborating with engineers and educators for a WhatsApp learning bot during COVID-19, maintaining learning continuity for 3M students.",
+    description: "Spearheaded product customization by collaborating with engineers and educators for a WhatsApp learning bot during COVID-19, maintaining learning continuity for 3M students.",
     tags: ["EdTech", "Product Customization", "Scale"],
     icon: School,
     link: null,
