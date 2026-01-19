@@ -47,6 +47,16 @@ const projects: Project[] = [
     demoLink: "https://calevents-discovery.vercel.app/",
     githubLink: "https://github.com/akhil-neelam-ai/Cal-Events-Discovery",
   },
+  {
+    id: 3,
+    title: "MirrorMe: AI Virtual Try-On Chrome Extension",
+    briefDescription: "A Chrome extension that lets users visualize clothing on themselves before purchasing. Integrates AI virtual try-on technology directly into fashion e-commerce sites like Amazon and Myntra.",
+    techStack: ["Chrome Extension API", "Next.js", "Replicate", "NanoBanana AI", "React", "Tailwind CSS"],
+    overview: "A Chrome extension that eliminates online shopping uncertainty by letting users visualize how clothing will actually look on them before purchasing. The system detects product images on fashion e-commerce sites like Amazon and Myntra, then uses AI-powered virtual try-on technology to generate realistic visualizations of the user wearing the selected items.",
+    challenge: "Online clothing shopping has a fundamental problem: you can't try things on. This leads to high return rates, wasted time, and hesitant purchases. Shoppers often buy multiple sizes \"just in case\" or abandon carts entirely due to uncertainty about fit and appearance. Existing solutions required leaving the shopping site or uploading photos to separate applications, breaking the natural shopping flow.",
+    solution: "I built a lightweight Chrome extension paired with a Next.js web application that:\n\n1. Detects product images on supported fashion retail sites using site-specific selectors with intelligent fallbacks\n2. Opens a clean interface at mirror-me.app without disrupting the shopping experience\n3. Processes user photos through Replicate's NanoBanana AI model for realistic clothing visualization\n4. Returns try-on results in seconds, letting shoppers see themselves in the item before buying\n\nThe architecture separates the extension from the AI processing to avoid Content Security Policy restrictions, resulting in a seamless experience that integrates naturally into existing shopping workflows.",
+    demoLink: "https://mirror-me.app/",
+  },
 ];
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
