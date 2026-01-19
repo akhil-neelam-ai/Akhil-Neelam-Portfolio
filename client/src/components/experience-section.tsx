@@ -24,7 +24,7 @@ const experiences: Experience[] = [
     company: "Centre for Gender And Politics (CGAP)",
     role: "Co-founder & Director",
     period: "Jul 2021 - Mar 2025",
-    location: "India (Remote)",
+    location: "India",
     description: "Co-founded South Asia's first-ever think tank exclusively focused on gender inclusion in politics, growing to 140+ members across 14 countries.",
   },
   {
@@ -32,7 +32,7 @@ const experiences: Experience[] = [
     company: "Central Square Foundation",
     role: "Project Manager",
     period: "Nov 2019 - Jun 2021",
-    location: "Hyderabad, India",
+    location: "India",
     description: "Product customization for a WhatsApp learning bot during COVID-19, maintaining continuity for 3M students",
   },
   {
@@ -40,7 +40,7 @@ const experiences: Experience[] = [
     company: "Government of Andhra Pradesh",
     role: "Consultant, Project Management Unit",
     period: "Sep 2017 - Jun 2020",
-    location: "Vijayawada, India",
+    location: "India",
     description: "Predictive ML based school dropout prediction and retention; Product Customisation and Rollout of AI based EdTech products across public schools",
   },
 ];
