@@ -37,8 +37,8 @@ const projects = [
   {
     id: 4,
     title: "AI-Based Learning Solution",
-    organization: "Govt of Andhra Pradesh x Microsoft",
-    role: "PMU Consultant",
+    organization: "Govt of Andhra Pradesh",
+    role: "Consultant",
     description: "Orchestrated a pilot project with 3 tech vendors, 2 consulting firms, and 3 govt departments. Developed performance metrics and policy framework enabling scaling of AI-based personalized learning to 500 schools.",
     tags: ["AI/ML", "Government", "Education"],
     icon: Brain,
