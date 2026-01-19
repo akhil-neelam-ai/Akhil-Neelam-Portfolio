@@ -11,7 +11,21 @@ const interests = [
   {
     icon: Code,
     title: "Vibe Coding",
-    description: "Building apps with Claude Code, Replit, and other AI-powered tools—whether it's boosting personal productivity or just having fun with side projects.",
+    description: (
+      <>
+        Building apps with Claude Code, Replit, and other AI-powered tools—whether it's boosting personal productivity or just having fun with side projects.{" "}
+        <a 
+          href="#projects" 
+          className="text-accent-foreground font-medium hover:underline inline-flex items-center gap-1"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          View projects
+        </a>
+      </>
+    ),
   },
 ];
 
