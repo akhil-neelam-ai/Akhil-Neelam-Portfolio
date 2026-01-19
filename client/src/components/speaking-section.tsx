@@ -215,7 +215,7 @@ export function SpeakingSection() {
           <div className="mt-6 pt-6 border-t border-border">
             <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">LinkedIn Growth:</span>{" "}
-              Built thought-leadership presence from 1K to 15K followers, leveraging content 
+              Built thought-leadership presence from 1K to 16K followers, leveraging content 
               strategy to engage global experts and recruit 140+ volunteers across 14 countries.
             </p>
           </div>
