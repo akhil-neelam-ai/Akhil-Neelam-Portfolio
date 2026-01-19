@@ -10,8 +10,8 @@ const interests = [
   },
   {
     icon: BookOpen,
-    title: "Lifelong Learner",
-    description: "From AI tools like Claude and CustomGPTs to emerging tech, always exploring new frontiers.",
+    title: "Vibe Coding",
+    description: "Building apps with Claude Code, Replit, and other AI-powered tools—whether it's boosting personal productivity or just having fun with side projects.",
   },
 ];
 
