@@ -13,6 +13,7 @@ import speakingImg4 from "@assets/Presenting_my_book_to_the_President_and_First_
 import speakingImg5 from "@assets/BV_1_(1)_1768549802913.jpg";
 import speakingImg6 from "@assets/Presenting_my_research_study_during_GEST_1768549852733.jpg";
 import speakingImg7 from "@assets/ChangeMaker_Award,_Dec_2024_1768549946899.jpg";
+import speakingImg8 from "@assets/1_building_with_claude_1769238256258.jpg";
 
 const galleryImages = [
   { src: speakingImg1, alt: "Speaking at Showcase Expo Hyderabad" },
@@ -22,6 +23,7 @@ const galleryImages = [
   { src: speakingImg5, alt: "Reviewing Beyond Victims publication" },
   { src: speakingImg6, alt: "Presenting research during GEST" },
   { src: speakingImg7, alt: "Receiving ChangeMaker Award 2024" },
+  { src: speakingImg8, alt: "Building with Claude presentation" },
 ];
 
 const speakingHighlights = [
