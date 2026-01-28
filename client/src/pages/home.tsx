@@ -6,6 +6,7 @@ import { ExperienceSection } from "@/components/experience-section";
 import { PersonalSection } from "@/components/personal-section";
 import { VibeCodingSection } from "@/components/vibe-coding-section";
 import { ContactSection } from "@/components/contact-section";
+import { BackToTop } from "@/components/back-to-top";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
           <ContactSection />
         </div>
       </main>
+      
+      <BackToTop />
     </div>
   );
 }
