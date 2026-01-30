@@ -119,6 +119,24 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
             </div>
             <DialogTitle className="font-serif text-xl md:text-2xl text-left">{project.title}</DialogTitle>
           </div>
+          <div className="flex flex-wrap gap-2 pt-2">
+            {project.demoLink && (
+              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                <Button size="sm" variant="default" className="gap-1.5 h-8" data-testid="button-project-demo-top">
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  Live Demo
+                </Button>
+              </a>
+            )}
+            {project.githubLink && (
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                <Button size="sm" variant="outline" className="gap-1.5 h-8" data-testid="button-project-github-top">
+                  <Github className="w-3.5 h-3.5" />
+                  GitHub
+                </Button>
+              </a>
+            )}
+          </div>
           <DialogDescription className="sr-only">
             Details about {project.title}
           </DialogDescription>
@@ -157,24 +175,6 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-4 border-t border-border">
-            {project.demoLink && (
-              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                <Button variant="default" className="gap-2" data-testid="button-project-demo">
-                  <ExternalLink className="w-4 h-4" />
-                  See this in action
-                </Button>
-              </a>
-            )}
-            {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2" data-testid="button-project-github">
-                  <Github className="w-4 h-4" />
-                  {project.id === 2 ? "GitHub Repo" : "Step-by-Step Guide"}
-                </Button>
-              </a>
-            )}
-          </div>
         </div>
       </DialogContent>
     </Dialog>
