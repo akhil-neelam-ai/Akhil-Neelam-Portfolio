@@ -124,7 +124,7 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
               <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                 <Button size="sm" variant="default" className="gap-1.5 h-8" data-testid="button-project-demo-top">
                   <ExternalLink className="w-3.5 h-3.5" />
-                  Live Demo
+                  Watch it live
                 </Button>
               </a>
             )}
