@@ -124,7 +124,7 @@ export function Navigation() {
               </Button>
             </a>
           </div>
-          <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-sidebar">
+          <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-sidebar">
             <Button
               variant="secondary"
               className="w-full gap-2"
@@ -222,7 +222,7 @@ export function Navigation() {
                     </Button>
                   </a>
                 </div>
-                <a href="/api/resume" download="Akhil_Neelam_Resume.pdf">
+                <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf">
                   <Button variant="secondary" className="w-full gap-2">
                     <Download className="h-4 w-4" />
                     Download Resume

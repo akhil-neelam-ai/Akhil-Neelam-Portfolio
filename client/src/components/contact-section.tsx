@@ -96,7 +96,7 @@ export function ContactSection() {
                   <p className="text-muted-foreground text-center text-sm">
                     Looking for my resume? Download the latest version here.
                   </p>
-                  <a href="/api/resume" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-contact">
+                  <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-contact">
                     <Button size="lg" className="gap-2">
                       <Download className="w-5 h-5" />
                       Download Resume
