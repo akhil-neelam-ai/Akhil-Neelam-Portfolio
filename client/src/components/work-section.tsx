@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Bot, Users, School, Brain } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 const projects = [
   {
@@ -88,6 +89,7 @@ export function WorkSection() {
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-foreground transition-colors"
                         data-testid={`link-project-${project.id}`}
+                        onClick={() => analytics.clickExternalLink(project.link!, project.title)}
                       >
                         <ExternalLink className="w-5 h-5" />
                       </a>

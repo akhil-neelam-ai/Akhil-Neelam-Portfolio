@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Download, MapPin, ExternalLink, Github } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 export function ContactSection() {
   return (
@@ -42,6 +43,7 @@ export function ContactSection() {
                       href="mailto:akhil_neelam@berkeley.edu"
                       className="text-sm sm:text-base font-medium text-foreground hover:text-highlight transition-colors"
                       data-testid="link-email-contact"
+                      onClick={() => analytics.contactInteraction('email_click_contact')}
                     >
                       akhil_neelam@berkeley.edu
                     </a>
@@ -58,6 +60,7 @@ export function ContactSection() {
                       rel="noopener noreferrer"
                       className="text-sm sm:text-base font-medium text-foreground hover:text-highlight transition-colors inline-flex items-center gap-1"
                       data-testid="link-linkedin-contact"
+                      onClick={() => analytics.clickSocial('linkedin')}
                     >
                       /in/akhilneelam
                       <ExternalLink className="w-3 h-3" />
@@ -75,6 +78,7 @@ export function ContactSection() {
                       rel="noopener noreferrer"
                       className="text-sm sm:text-base font-medium text-foreground hover:text-highlight transition-colors inline-flex items-center gap-1"
                       data-testid="link-github-contact"
+                      onClick={() => analytics.clickSocial('github')}
                     >
                       akhil-neelam-ai
                       <ExternalLink className="w-3 h-3" />
@@ -96,7 +100,12 @@ export function ContactSection() {
                   <p className="text-muted-foreground text-center text-sm">
                     Looking for my resume? Download the latest version here.
                   </p>
-                  <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-contact">
+                  <a
+                    href="/Akhil_Neelam_Resume.pdf"
+                    download="Akhil_Neelam_Resume.pdf"
+                    data-testid="button-download-resume-contact"
+                    onClick={() => analytics.downloadResume()}
+                  >
                     <Button size="lg" className="gap-2">
                       <Download className="w-5 h-5" />
                       Download Resume

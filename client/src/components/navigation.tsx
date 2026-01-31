@@ -3,6 +3,7 @@ import { Menu, X, Linkedin, Mail, Download, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -47,6 +48,8 @@ export function Navigation() {
         top: offsetPosition,
         behavior: "smooth",
       });
+
+      analytics.navigateToSection(sectionId);
     }
     setIsMobileMenuOpen(false);
   };
@@ -91,6 +94,7 @@ export function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="link-linkedin-sidebar"
+              onClick={() => analytics.clickSocial('linkedin')}
             >
               <Button
                 variant="ghost"
@@ -100,7 +104,11 @@ export function Navigation() {
                 <Linkedin className="h-5 w-5" />
               </Button>
             </a>
-            <a href="mailto:akhil_neelam@berkeley.edu" data-testid="link-email-sidebar">
+            <a
+              href="mailto:akhil_neelam@berkeley.edu"
+              data-testid="link-email-sidebar"
+              onClick={() => analytics.contactInteraction('email_click_sidebar')}
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -114,6 +122,7 @@ export function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="link-github-sidebar"
+              onClick={() => analytics.clickSocial('github')}
             >
               <Button
                 variant="ghost"
@@ -124,7 +133,12 @@ export function Navigation() {
               </Button>
             </a>
           </div>
-          <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf" data-testid="button-download-resume-sidebar">
+          <a
+            href="/Akhil_Neelam_Resume.pdf"
+            download="Akhil_Neelam_Resume.pdf"
+            data-testid="button-download-resume-sidebar"
+            onClick={() => analytics.downloadResume()}
+          >
             <Button
               variant="secondary"
               className="w-full gap-2"
@@ -190,6 +204,7 @@ export function Navigation() {
                     href="https://linkedin.com/in/akhilneelam"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => analytics.clickSocial('linkedin')}
                   >
                     <Button
                       variant="ghost"
@@ -199,7 +214,10 @@ export function Navigation() {
                       <Linkedin className="h-5 w-5" />
                     </Button>
                   </a>
-                  <a href="mailto:akhil_neelam@berkeley.edu">
+                  <a
+                    href="mailto:akhil_neelam@berkeley.edu"
+                    onClick={() => analytics.contactInteraction('email_click_mobile')}
+                  >
                     <Button
                       variant="ghost"
                       size="icon"
@@ -212,6 +230,7 @@ export function Navigation() {
                     href="https://github.com/akhil-neelam-ai"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => analytics.clickSocial('github')}
                   >
                     <Button
                       variant="ghost"
@@ -222,7 +241,11 @@ export function Navigation() {
                     </Button>
                   </a>
                 </div>
-                <a href="/Akhil_Neelam_Resume.pdf" download="Akhil_Neelam_Resume.pdf">
+                <a
+                  href="/Akhil_Neelam_Resume.pdf"
+                  download="Akhil_Neelam_Resume.pdf"
+                  onClick={() => analytics.downloadResume()}
+                >
                   <Button variant="secondary" className="w-full gap-2">
                     <Download className="h-4 w-4" />
                     Download Resume

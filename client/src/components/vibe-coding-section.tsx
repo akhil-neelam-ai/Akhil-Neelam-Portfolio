@@ -11,6 +11,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { ExternalLink, Github, Code, Sparkles } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 interface Project {
   id: number;
@@ -121,7 +122,12 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
           </div>
           <div className="flex flex-wrap gap-2 pt-2">
             {project.demoLink && (
-              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analytics.clickProject(project.title, 'demo')}
+              >
                 <Button size="sm" variant="default" className="gap-1.5 h-8" data-testid="button-project-demo-top">
                   <ExternalLink className="w-3.5 h-3.5" />
                   Watch it live
@@ -129,7 +135,12 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
               </a>
             )}
             {project.githubLink && (
-              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analytics.clickProject(project.title, 'github')}
+              >
                 <Button size="sm" variant="outline" className="gap-1.5 h-8" data-testid="button-project-github-top">
                   <Github className="w-3.5 h-3.5" />
                   GitHub
