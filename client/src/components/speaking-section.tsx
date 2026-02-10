@@ -16,14 +16,14 @@ import speakingImg7 from "@assets/ChangeMaker_Award,_Dec_2024_1768549946899.jpg"
 import speakingImg8 from "@assets/1_building_with_claude_1769238256258.jpg";
 
 const galleryImages = [
-  { src: speakingImg1, alt: "Speaking at Showcase Expo Hyderabad" },
-  { src: speakingImg2, alt: "Panelist at UPLIFT Leadership Conclave" },
-  { src: speakingImg3, alt: "Presentation featuring CGAP" },
-  { src: speakingImg4, alt: "Presenting book to President and First Lady" },
-  { src: speakingImg5, alt: "Reviewing Beyond Victims publication" },
-  { src: speakingImg6, alt: "Presenting research during GEST" },
-  { src: speakingImg7, alt: "Receiving ChangeMaker Award 2024" },
-  { src: speakingImg8, alt: "Building with Claude presentation" },
+  { src: speakingImg1, alt: "Akhil Neelam speaking at J.P. Morgan office in Hyderabad", caption: "At J.P. Morgan, Hyderabad" },
+  { src: speakingImg2, alt: "Akhil Neelam as panelist at a Leadership Conclave in 2023", caption: "Leadership Conclave · 2023" },
+  { src: speakingImg3, alt: "Akhil Neelam's work featured at an event in China, 2025", caption: "Featured in China · 2025" },
+  { src: speakingImg4, alt: "Akhil Neelam presenting his book to the President of Iceland", caption: "Presenting My Book to the President of Iceland" },
+  { src: speakingImg5, alt: "Akhil Neelam's project featured in Chinese at an international event, 2025", caption: "Project Featured in Chinese · 2025" },
+  { src: speakingImg6, alt: "Akhil Neelam giving a talk in Reykjavík, Iceland in 2023", caption: "Talk · Reykjavík, Iceland · 2023" },
+  { src: speakingImg7, alt: "Akhil Neelam receiving the ChangeMaker Award in 2024", caption: "Receiving ChangeMaker Award · 2024" },
+  { src: speakingImg8, alt: "Akhil Neelam presenting on building with Claude AI in San Francisco, 2026", caption: "Building with Claude · San Francisco · 2026" },
 ];
 
 const speakingHighlights = [
@@ -115,14 +115,18 @@ export function SpeakingSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
-                <div className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted">
+                <figure className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted group">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
-                </div>
+                  <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-white text-sm font-sans">
+                    {image.caption}
+                  </figcaption>
+                </figure>
               </motion.div>
             ))}
           </div>

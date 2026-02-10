@@ -58,8 +58,9 @@ export function HeroSection() {
               <div className="relative h-full w-full bg-card rounded-2xl overflow-hidden shadow-lg border border-card-border group">
                 <img
                   src={heroPhoto}
-                  alt="Akhil Neelam"
+                  alt="Akhil Neelam - UC Berkeley Haas MBA Student, Founder, and Technology Leader"
                   className="w-full h-full object-cover object-top"
+                  decoding="async"
                   data-testid="img-hero-avatar"
                 />
               </div>
