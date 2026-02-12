@@ -29,7 +29,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Daily Newsletter Briefing via Alexa",
-    briefDescription: "Spent 20+ minutes every morning reading newsletters. Built an Alexa skill that auto-summarizes them into 2-minute audio briefings—turning a daily time sink into a hands-free solution.",
+    briefDescription: "I wasted way too much time each morning reading newsletters. Built an Alexa skill that summarizes them into quick 2-minute audio briefings you can listen to hands-free.",
     techStack: ["n8n", "Claude AI", "Gmail API", "Airtable", "Alexa Skills", "RSS", "REST API", "Workflow Automation"],
     overview: "I started by mapping the user journey of my own morning routine and identified a key insight: the problem wasn't too many newsletters—it was that reading is the wrong modality for time-constrained mornings. Audio is. So rather than building another \"summarize my inbox\" tool, I designed a pipeline specifically optimized for voice delivery: summaries are written in spoken-language cadence, structured for linear listening, and delivered through a device already in the room (Alexa).",
     challenge: "Like many professionals, I subscribed to 5+ daily newsletters (TechCrunch, The Verge, NYT Tech, Axios) to stay informed. But the core issue wasn't volume—it was context mismatch. Mornings demand hands-free, rapid consumption. \"Read later\" tags and inbox filters don't solve this because they still assume the user will sit down and read. I needed a solution that met me where I already was: in the kitchen, getting ready.",
@@ -40,7 +40,7 @@ const projects: Project[] = [
   {
     id: 2,
     title: "CalEvents Discovery: AI-Powered Campus Intelligence",
-    briefDescription: "Berkeley has great events scattered across 30+ websites. Built an AI search tool that finds them in seconds instead of hours of manual checking—solving the student discovery problem.",
+    briefDescription: "Berkeley's best events are scattered across 30+ websites. Built an AI search tool that finds them instantly, solving the frustration of endless manual hunting.",
     techStack: ["React 19", "Tailwind CSS", "Gemini 2.0 Flash", "Google Search Grounding", "JSON Schema", "Natural Language Filtering"],
     overview: "After talking to classmates, I found that the problem wasn't a lack of events—it was a discovery gap. Students routinely missed cross-departmental talks and workshops because no one checks 10 different websites daily. Instead of building a traditional scraper (which would break every time a department redesigned their page), I made a deliberate architectural bet: use AI search grounding to query sites in real-time, treating the web itself as the database. This made the system resilient to upstream changes without any maintenance.",
     challenge: "UC Berkeley hosts hundreds of events weekly across dozens of departmental subdomains (CDSS, Engineering, CE3, etc.), each with different web formats, calendaring tools, and update cadences. For students and researchers, staying informed meant manually checking 10+ bookmarks daily or relying on word-of-mouth. The real cost wasn't just time—it was missed serendipity. An ML student never discovers the behavioral economics talk that would have sparked their next research idea.",
@@ -51,7 +51,7 @@ const projects: Project[] = [
   {
     id: 3,
     title: "MirrorMe: AI Virtual Try-On Chrome Extension",
-    briefDescription: "Online shoppers can't try clothes before buying—leading to buyer's remorse and high returns. Built a Chrome extension that shows how clothes look on you right on the product page, removing the friction.",
+    briefDescription: "Buying clothes online is risky without trying them on first. Built a Chrome extension that shows how clothes look on you right on the product page, eliminating that friction.",
     techStack: ["Chrome Extension API", "Next.js", "Replicate", "NanoBanana AI", "React", "Tailwind CSS"],
     overview: "The critical product insight was about distribution, not technology. Virtual try-on tools already exist—but they all require the shopper to leave their current site, upload a photo to a separate app, and manually find the product. That's too much friction. By packaging it as a Chrome extension that activates on the retailer's own product page, I embedded the experience exactly where the purchase decision happens. The best feature is the one users don't have to go looking for.",
     challenge: "Online clothing shopping has a fundamental conversion problem: uncertainty about fit and appearance drives cart abandonment and costly returns. Shoppers buy multiple sizes \"just in case\" or skip the purchase entirely. Existing virtual try-on solutions require leaving the shopping site or uploading photos to separate applications—adding friction at the exact moment when reducing it matters most. The opportunity was clear: bring the try-on experience to the shopper, not the other way around.",
