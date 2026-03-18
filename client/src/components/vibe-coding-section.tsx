@@ -67,7 +67,7 @@ const projects: Project[] = [
     challenge: "Mapped every coordinate onto a Three.js globe. Color-coded by country. Connected nearby dots with constellation lines. Added a terminal boot sequence because the vibe demanded it. You can drag to rotate, pinch to zoom, click a dot and the camera flies there. Search for a place. Filter by category. Hover a row and the dot lights up on the globe.",
     solution: "The whole thing is a pipeline: Google Takeout → privacy cleaning script → WebGL point cloud. Three.js is lazy-loaded behind the boot sequence so initial load is 65KB. Raycaster only fires when the mouse moves.",
     demoLink: "https://starred.akhilneelam.com",
-    githubLink: "https://github.com/akhil-neelam-ai/my-world-in-stars",
+    githubLink: "https://github.com/akhil-neelam-ai/starred",
   },
 ];
 
