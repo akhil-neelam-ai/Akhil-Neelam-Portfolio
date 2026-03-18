@@ -14,7 +14,7 @@ const experiences: Experience[] = [
   {
     id: 1,
     company: "Uniblox",
-    role: "Pre-MBA Product Intern",
+    role: "Pre-MBA Product Management",
     period: "Apr 2025 - Jun 2025",
     location: "Seattle, WA (Remote)",
     description: "InsurTech startup building an AI powered platform to automate group insurance enrollment and underwriting.",

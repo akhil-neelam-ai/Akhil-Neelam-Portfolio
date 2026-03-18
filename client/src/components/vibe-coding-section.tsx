@@ -21,6 +21,9 @@ interface Project {
   overview: string;
   challenge: string;
   solution: string;
+  overviewLabel?: string;
+  challengeLabel?: string;
+  solutionLabel?: string;
   demoLink?: string;
   githubLink?: string;
 }
@@ -63,9 +66,12 @@ const projects: Project[] = [
     title: "starred: Google Takeout Data Visualization",
     briefDescription: "1,248 starred places on Google Maps. Exported the raw data. Built a WebGL globe. Every dot is somewhere I've been.",
     techStack: ["React 19", "Three.js", "TypeScript", "WebGL", "Google Takeout", "Vite"],
-    overview: "I had 1,248 stars sitting in Google Maps doing nothing. So I exported them via Google Takeout — got a raw JSON dump of coordinates, names, and countries. Cleaned out the noise (hospitals, banks, my regular grocery store — you don't need to know those). What was left: 781 places across 16 countries, 21 Indian states, 35 airports.",
-    challenge: "Mapped every coordinate onto a Three.js globe. Color-coded by country. Connected nearby dots with constellation lines. Added a terminal boot sequence because the vibe demanded it. You can drag to rotate, pinch to zoom, click a dot and the camera flies there. Search for a place. Filter by category. Hover a row and the dot lights up on the globe.",
-    solution: "The whole thing is a pipeline: Google Takeout → privacy cleaning script → WebGL point cloud. Three.js is lazy-loaded behind the boot sequence so initial load is 65KB. Raycaster only fires when the mouse moves.",
+    overviewLabel: "The Story",
+    overview: "I had 1,248 stars sitting in Google Maps doing nothing. So I exported them via Google Takeout — got a raw JSON dump of coordinates, names, and countries. Cleaned out the noise (hospitals, banks, my regular grocery store — you don't need to know those). What was left: 825 places across 16 countries, 21 Indian states, 35 airports.",
+    challengeLabel: "What I Built",
+    challenge: "Mapped every coordinate onto a Three.js globe. Color-coded by country. Connected nearby dots with constellation lines. Added a terminal boot sequence because the vibe demanded it. You can drag to rotate, pinch to zoom, click a dot and the camera flies there. Search for a place. Filter by category. Hover a row and the dot lights up on the globe. The whole thing is a pipeline: Google Takeout → privacy cleaning script → WebGL point cloud. Three.js is lazy-loaded behind the boot sequence so initial load is 65KB.",
+    solutionLabel: "Red Teaming My Own Data",
+    solution: "Before shipping, I red-teamed the entire dataset. The raw Google Takeout export had my home addresses, medical facilities, banks, massage parlors, daily grocery stores — all with 6-decimal-point GPS precision (accurate to 0.1 meters). I built a cleaning pipeline that strips sensitive categories, removes residential addresses, and keeps only places worth sharing. The data is inlined into the JS bundle (no public JSON endpoint to scrape) and only loads after user interaction. I also ran a Vercel Web Interface Guidelines audit and a SquirrelScan security audit — fixing accessibility, CSP headers, and focus states.",
     demoLink: "https://starred.akhilneelam.com",
     githubLink: "https://github.com/akhil-neelam-ai/starred",
   },
@@ -166,21 +172,21 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
 
         <div className="space-y-6">
           <div>
-            <h4 className="font-semibold text-foreground mb-2">Project Overview</h4>
+            <h4 className="font-semibold text-foreground mb-2">{project.overviewLabel || 'Project Overview'}</h4>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {project.overview}
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-2">The Challenge</h4>
+            <h4 className="font-semibold text-foreground mb-2">{project.challengeLabel || 'The Challenge'}</h4>
             <p className="text-muted-foreground text-sm leading-relaxed">
               {project.challenge}
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-2">The Solution</h4>
+            <h4 className="font-semibold text-foreground mb-2">{project.solutionLabel || 'The Solution'}</h4>
             <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">
               {project.solution}
             </p>
