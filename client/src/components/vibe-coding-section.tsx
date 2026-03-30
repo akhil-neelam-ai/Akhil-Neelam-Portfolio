@@ -75,6 +75,16 @@ const projects: Project[] = [
     demoLink: "https://starred.akhilneelam.com",
     githubLink: "https://github.com/akhil-neelam-ai/starred",
   },
+  {
+    id: 5,
+    title: "Write Like a Human",
+    briefDescription: "AI writing sounds like AI. I built a skill you drop into any LLM that bans 50+ overused words, catches structural tells, and calibrates to your personal voice.",
+    techStack: ["Claude API", "Prompt Engineering", "Anthropic SDK", "Python", "Markdown"],
+    overview: "I kept getting AI outputs stuffed with \"delve,\" \"tapestry,\" and \"not just X but Y.\" Research showed these words surged 500-6,700% in academic papers after ChatGPT launched. Readers can spot them. Recruiters can spot them. I wanted a single file I could drop into any AI tool that would fix the problem at the source, not after the fact.",
+    challenge: "Banning words is easy. Making AI actually sound like a specific person is hard. A generic \"write simply\" instruction produces generic simple writing. I needed the skill to learn individual voice patterns, so two different users would get two different outputs from the same prompt.",
+    solution: "The skill has four parts. A banned word list backed by a 950,000-paper study. Structural rules that catch em dash overuse, rule-of-three filler, positivity bias, and 10 other AI tells. A 13-point self-check the AI runs before returning any writing. And a voice calibration system: you feed it 3-5 samples of your own writing, it builds a profile of your sentence structure, openers, word choices, and register range. After that, the AI writes like you.\n\nI tested it across Claude Haiku, Sonnet, and Opus. Zero banned words in the output across all models. Works with Claude, ChatGPT, Gemini, Manus, or anything that takes a system prompt.",
+    githubLink: "https://github.com/akhil-neelam-ai/write-like-a-human",
+  },
 ];
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
