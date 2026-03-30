@@ -39,7 +39,7 @@ const projects: Project[] = [
     overview: "I subscribe to 5+ daily newsletters. Mornings are hands-free time. I'm in the kitchen, getting ready, not sitting at a desk. \"Read later\" folders don't help because they assume you'll sit down later and actually read. I needed something that worked while I was moving. So I built the whole system around voice. Summaries are written to sound natural when spoken, kept under 30 seconds each, and delivered through an Alexa speaker already sitting on my counter.",
     challenge: "The real problem wasn't too many newsletters. It was the format. Reading is the wrong medium for a busy morning. Audio is perfect. But I didn't want another app to open. Alexa Flash Briefing already existed as a habit. I just needed to pipe my newsletters into it.",
     solution: "Once set up, the system runs with zero daily input from me. Gmail filters catch newsletters as they arrive. The HTML gets stripped to core content. Claude 3.5 Haiku generates a summary written for spoken delivery. Airtable stores everything for debugging. An RSS feed ties it all together. Every morning, I ask Alexa for my briefing and it's there. I picked Alexa Flash Briefing over a custom app because the habit of asking Alexa for a morning update already existed. No new behavior needed.",
-    productInsight: "The biggest lesson: don't ask people to build new habits. I had three other designs before this one. A Telegram bot. A web dashboard. A mobile app. All required opening something new. Alexa worked because the behavior already existed. I just changed what came out of the speaker.",
+    productInsight: "",
     demoLink: "https://www.linkedin.com/posts/akhilneelam_techautomation-ai-productivityhack-activity-7416624475321913362-uPJW",
     githubLink: "https://github.com/akhil-neelam-ai/alexa-newsletter-briefing",
   },
@@ -196,12 +196,14 @@ function ProjectModal({ project, open, onClose }: { project: Project | null; ope
             </p>
           </div>
 
-          <div>
-            <h4 className="font-semibold text-foreground mb-2">{project.productInsightLabel || 'What I Learned'}</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {project.productInsight}
-            </p>
-          </div>
+          {project.productInsight && (
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">{project.productInsightLabel || 'What I Learned'}</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {project.productInsight}
+              </p>
+            </div>
+          )}
 
           <div>
             <h4 className="font-semibold text-foreground mb-3">Tech Stack</h4>
