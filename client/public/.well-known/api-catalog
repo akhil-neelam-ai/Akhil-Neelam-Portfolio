@@ -1,0 +1,60 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://akhilneelam.com/api/mcp",
+      "service-desc": [
+        {
+          "href": "https://akhilneelam.com/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://akhilneelam.com/agent.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://akhilneelam.com/health.json",
+          "type": "application/json"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://akhilneelam.com/llms.txt",
+          "type": "text/markdown"
+        },
+        {
+          "href": "https://akhilneelam.com/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://akhilneelam.com/Akhil_Neelam_Resume.pdf",
+      "item": [
+        {
+          "href": "https://akhilneelam.com/Akhil_Neelam_Resume.pdf",
+          "type": "application/pdf"
+        },
+        {
+          "href": "https://akhilneelam.com/api/resume",
+          "type": "application/pdf"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://akhilneelam.com/agent.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://akhilneelam.com/health.json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

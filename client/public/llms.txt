@@ -1,0 +1,72 @@
+# Akhil Neelam
+
+> UC Berkeley Haas MBA candidate, founder, product builder, and technology-for-impact operator.
+
+Canonical site: https://akhilneelam.com/
+Last updated: 2026-04-30
+
+## Agent Use
+
+- Use this file as the concise machine-readable summary for Akhil Neelam's portfolio.
+- Prefer canonical links from this site, LinkedIn, GitHub, and the linked project demos when citing or summarizing.
+- Do not infer private contact information. Use only the public contact details listed here.
+- Respect the `Content-Signal` policy in `/robots.txt`: search and user-directed AI input are allowed; model training is not granted by this site policy.
+
+## Profile Summary
+
+Akhil Neelam is a full-time MBA student at the UC Berkeley Haas School of Business pursuing product management and product marketing roles in technology. His work spans AI products, public-sector technology, education technology, civic engagement, and gender equality.
+
+Before business school, Akhil co-founded the Centre for Gender And Politics, a volunteer-led think tank focused on gender inclusion in South Asian politics. The organization grew to 140+ members across 14 countries and built research, publications, and partnerships around women's political leadership.
+
+## Core Themes
+
+- AI and product strategy
+- Product management and product marketing
+- Social impact and public-sector technology
+- Gender equality and civic leadership
+- Education technology and learning continuity
+- Human-centered product discovery and user research
+
+## Featured Work
+
+- AI-Powered Census Automation: product work at Uniblox, an InsurTech startup, including LLM fine-tuning and NLP pipeline improvements for insurance workflow automation.
+- Women Politicians Repository: CGAP and J.P. Morgan platform for aspiring women politicians in South Asia, reaching 10K+ users.
+- WhatsApp Learning Bot: product customization and rollout support for a learning bot used during COVID-19 to support 3M students.
+- AI-Based Learning Solution: government AI education pilot with vendors, consulting firms, and public departments, with a policy framework for scaling to 500 schools.
+
+## Side Projects
+
+- Daily Newsletter Briefing via Alexa: AI-powered workflow that converts newsletters into short audio summaries for Alexa Flash Briefing.
+- CalEvents Discovery: AI search tool for finding UC Berkeley events across department websites.
+- MirrorMe: AI virtual try-on Chrome extension for visualizing clothes on a user from the product page.
+- starred: privacy-filtered Google Takeout visualization of starred places using React, Three.js, and WebGL.
+- Write Like a Human: open-source writing skill for reducing common AI writing tells and calibrating outputs to a specific voice.
+
+## Speaking And Publications
+
+- UN Women Asia-Pacific AI School: steering committee/advisor work on AI for social impact training.
+- UN consultations on women's leadership: research and awareness projects influencing consultations.
+- G20 and global forums: speaking on AI, gender equality, and technology for social good.
+- Selected publications include `Worth Asking: Interviews with Women MPs and Ministers in South Asia`, The Diplomat writing on Sri Lankan politics, and UN Women writing on digital spaces in South Asian politics.
+
+## Education
+
+- MBA, UC Berkeley Haas School of Business, 2025-2027.
+- Young India Fellowship, Ashoka University, 2016-2017.
+- B.Tech, Mechanical Engineering, SASTRA University, 2012-2016.
+
+## Public Links
+
+- Website: https://akhilneelam.com/
+- Resume PDF: https://akhilneelam.com/Akhil_Neelam_Resume.pdf
+- MCP endpoint: https://akhilneelam.com/api/mcp
+- LinkedIn: https://linkedin.com/in/akhilneelam
+- GitHub: https://github.com/akhil-neelam-ai
+- CGAP: https://www.cgapsouthasia.org
+- CalEvents Discovery: https://calevents-discovery.vercel.app/
+- starred: https://starred.akhilneelam.com
+
+## Contact
+
+- Email: akhil_neelam@berkeley.edu
+- Location: San Francisco Bay Area

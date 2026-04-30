@@ -1,0 +1,16 @@
+{
+  "serverInfo": {
+    "name": "Akhil Neelam Portfolio",
+    "version": "1.0.0",
+    "description": "Public portfolio summary and resource discovery for Akhil Neelam."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://akhilneelam.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "service": "akhil-neelam-portfolio",
+  "updated": "2026-04-30",
+  "resources": {
+    "summary": "https://akhilneelam.com/llms.txt",
+    "agentGuide": "https://akhilneelam.com/agent.md",
+    "resume": "https://akhilneelam.com/Akhil_Neelam_Resume.pdf",
+    "mcp": "https://akhilneelam.com/api/mcp"
+  }
+}

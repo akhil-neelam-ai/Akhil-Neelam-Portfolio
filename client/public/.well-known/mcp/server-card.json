@@ -1,0 +1,50 @@
+{
+  "serverInfo": {
+    "name": "Akhil Neelam Portfolio",
+    "version": "1.0.0",
+    "description": "Public portfolio summary and resource discovery for Akhil Neelam."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://akhilneelam.com/api/mcp"
+  },
+  "transports": [
+    {
+      "type": "streamable-http",
+      "endpoint": "https://akhilneelam.com/api/mcp"
+    }
+  ],
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "get_portfolio_summary",
+      "description": "Return a concise machine-readable summary of Akhil Neelam's portfolio, projects, public links, and contact information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "enum": ["all", "profile", "projects", "contact"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://akhilneelam.com/llms.txt",
+      "name": "Portfolio summary",
+      "mimeType": "text/markdown"
+    },
+    {
+      "uri": "https://akhilneelam.com/agent.md",
+      "name": "Agent guide",
+      "mimeType": "text/markdown"
+    }
+  ]
+}

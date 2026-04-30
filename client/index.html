@@ -26,6 +26,14 @@
     
     <link rel="canonical" href="https://akhilneelam.com" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="Akhil Neelam agent summary" />
+    <link rel="describedby" type="text/markdown" href="/llms.txt" />
+    <link rel="service-doc" type="text/markdown" href="/agent.md" />
+    <link rel="service-desc" type="application/openapi+json" href="/openapi.json" />
+    <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" />
+    <link rel="status" type="application/json" href="/health.json" />
+    <link rel="describedby" type="application/json" href="/.well-known/mcp/server-card.json" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2J5Q7NCEHK"></script>
@@ -83,6 +91,64 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="module">
+      (function registerPortfolioTool() {
+        const modelContext = navigator.modelContext;
+        if (!modelContext) {
+          return;
+        }
+
+        const tool = {
+          name: "get_portfolio_summary",
+          description:
+            "Return a concise machine-readable summary of Akhil Neelam's portfolio, projects, public links, and contact information.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              section: {
+                type: "string",
+                enum: ["all", "profile", "projects", "contact"],
+                description: "Optional section to prioritize in the returned summary."
+              }
+            },
+            additionalProperties: false
+          },
+          annotations: {
+            readOnlyHint: true
+          },
+          execute: async () => {
+            const response = await fetch("/llms.txt", {
+              headers: { Accept: "text/markdown" }
+            });
+            const text = await response.text();
+
+            return {
+              contentType: "text/markdown",
+              source: `${window.location.origin}/llms.txt`,
+              text
+            };
+          }
+        };
+
+        if (typeof modelContext.registerTool === "function") {
+          modelContext.registerTool(tool);
+          return;
+        }
+
+        if (typeof modelContext.provideContext === "function") {
+          modelContext.provideContext({
+            tools: [tool],
+            resources: [
+              {
+                uri: `${window.location.origin}/llms.txt`,
+                name: "Akhil Neelam portfolio summary",
+                mimeType: "text/markdown"
+              }
+            ]
+          });
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

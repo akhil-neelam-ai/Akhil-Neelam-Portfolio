@@ -1,0 +1,198 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Akhil Neelam Portfolio Public Resources",
+    "version": "1.0.0",
+    "description": "Public machine-readable resources for Akhil Neelam's portfolio, including resume access and a lightweight MCP-compatible summary endpoint."
+  },
+  "servers": [
+    {
+      "url": "https://akhilneelam.com"
+    }
+  ],
+  "paths": {
+    "/health.json": {
+      "get": {
+        "operationId": "getPortfolioHealth",
+        "summary": "Check that portfolio discovery resources are available",
+        "responses": {
+          "200": {
+            "description": "Portfolio discovery resource status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mcp": {
+      "get": {
+        "operationId": "getMcpEndpointInfo",
+        "summary": "Describe the lightweight MCP-compatible portfolio endpoint",
+        "responses": {
+          "200": {
+            "description": "MCP endpoint information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/McpInfo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "callPortfolioMcp",
+        "summary": "Call the MCP-compatible JSON-RPC endpoint",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonRpcRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON-RPC response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonRpcResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON-RPC request"
+          }
+        }
+      }
+    },
+    "/Akhil_Neelam_Resume.pdf": {
+      "get": {
+        "operationId": "downloadResumePdf",
+        "summary": "Download Akhil Neelam's public resume PDF",
+        "responses": {
+          "200": {
+            "description": "Resume PDF",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/resume": {
+      "get": {
+        "operationId": "downloadResumeViaApi",
+        "summary": "Download Akhil Neelam's public resume PDF through the API compatibility path",
+        "responses": {
+          "200": {
+            "description": "Resume PDF",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resume file was not found on the server deployment"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Health": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "ok"
+          },
+          "service": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "resources": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "required": ["status", "service", "updated", "resources"]
+      },
+      "McpInfo": {
+        "type": "object",
+        "properties": {
+          "serverInfo": {
+            "type": "object"
+          },
+          "capabilities": {
+            "type": "object"
+          },
+          "tools": {
+            "type": "array"
+          }
+        }
+      },
+      "JsonRpcRequest": {
+        "type": "object",
+        "properties": {
+          "jsonrpc": {
+            "type": "string",
+            "const": "2.0"
+          },
+          "id": {},
+          "method": {
+            "type": "string",
+            "enum": ["initialize", "tools/list", "tools/call", "resources/list", "resources/read"]
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": ["jsonrpc", "method"]
+      },
+      "JsonRpcResponse": {
+        "type": "object",
+        "properties": {
+          "jsonrpc": {
+            "type": "string",
+            "const": "2.0"
+          },
+          "id": {},
+          "result": {
+            "type": "object"
+          },
+          "error": {
+            "type": "object"
+          }
+        },
+        "required": ["jsonrpc"]
+      }
+    }
+  }
+}
