@@ -1,7 +1,7 @@
 export const profile = {
   name: "Akhil Neelam",
   eyebrow: "UC Berkeley Haas MBA",
-  headline: "Product builder focused on AI and public-sector impact",
+  headline: "Scaling Impact through technology",
   tagline:
     "MBA candidate building products where user research, AI, and measurable social outcomes meet.",
 } as const;

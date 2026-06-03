@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsiveImage } from "@/components/responsive-image";
-import { ResumeButton } from "@/components/resume-button";
 import { heroParagraphs, profile } from "@/data/bio";
 import { useScrollToSection } from "@/hooks/use-scroll-to-section";
 
@@ -43,7 +42,6 @@ export function HeroSection() {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <ResumeButton label="Download Resume" size="lg" testId="button-download-resume-hero" />
               <Button
                 size="lg"
                 variant="outline"

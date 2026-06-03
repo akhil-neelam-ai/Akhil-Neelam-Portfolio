@@ -18,8 +18,9 @@ export const navItems = [
   { id: "contact", label: "Contact" },
 ] as const;
 
+const sectionIds = navItems.map((item) => item.id);
+
 export function Navigation() {
-  const sectionIds = navItems.map((item) => item.id);
   const activeSection = useActiveSection(sectionIds);
   const scrollToSection = useScrollToSection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
