@@ -1,112 +1,66 @@
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Bot, Users, School, Brain } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { SectionHeader } from "@/components/section-header";
+import { featuredProjects } from "@/data/projects";
 import { analytics } from "@/lib/analytics";
-
-const projects = [
-  {
-    id: 1,
-    title: "AI-Powered Census Automation",
-    organization: "Uniblox (InsurTech Startup)",
-    role: "Pre-MBA Product Intern",
-    description: "Collaborated with engineers and data scientists to scope product features and analyze case data, shipping LLM fine-tuning that optimized the NLP pipeline for insurance workflow automation—reducing compute costs and improving processing efficiency.",
-    tags: ["AI/ML", "Product Management", "InsurTech"],
-    icon: Bot,
-    link: null,
-  },
-  {
-    id: 2,
-    title: "Women Politicians Repository",
-    organization: "CGAP x J.P. Morgan",
-    role: "Co-founder & Director",
-    description: "Defined product vision and executed partnership with J.P. Morgan to build a first-of-its-kind CMS platform serving as an online repository for aspiring women politicians in South Asia. Reached 10K+ users.",
-    tags: ["Product Strategy", "Partnerships", "Social Impact"],
-    icon: Users,
-    link: "https://www.cgapsouthasia.org",
-  },
-  {
-    id: 3,
-    title: "WhatsApp Learning Bot",
-    organization: "Central Square Foundation",
-    role: "Project Manager",
-    description: "Spearheaded product customization by collaborating with engineers and educators for a WhatsApp learning bot during COVID-19, maintaining learning continuity for 3M students.",
-    tags: ["EdTech", "Product Customization", "Scale"],
-    icon: School,
-    link: null,
-  },
-  {
-    id: 4,
-    title: "AI-Based Learning Solution",
-    organization: "Govt of Andhra Pradesh",
-    role: "Consultant",
-    description: "Orchestrated a pilot project with 3 tech vendors, 2 consulting firms, and 3 govt departments. Developed performance metrics and policy framework enabling scaling of AI-based personalized learning to 500 schools.",
-    tags: ["AI/ML", "Government", "Education"],
-    icon: Brain,
-    link: null,
-  },
-];
 
 export function WorkSection() {
   return (
     <section id="work" className="py-20 md:py-32 bg-muted/30">
-      <div className="container max-w-6xl mx-auto px-6 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Featured Work
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Highlights from my journey building technology solutions for impact, 
-            from AI-powered products to platforms serving millions.
-          </p>
-        </motion.div>
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
+        <SectionHeader
+          title="Featured Work"
+          description="Selected product and impact work from InsurTech, civic tech, EdTech, and government AI pilots."
+        />
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="h-full hover-elevate transition-all duration-300 group" data-testid={`card-project-${project.id}`}>
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-accent/50 dark:bg-accent/30 flex items-center justify-center">
-                      <project.icon className="w-6 h-6 text-accent-foreground" />
-                    </div>
+        <ol className="divide-y divide-border border-t border-border">
+          {featuredProjects.map((project, index) => {
+            const number = String(index + 1).padStart(2, "0");
+            return (
+              <li
+                key={project.id}
+                className="fade-in-view grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-10 gap-y-4 py-10 md:py-14 group"
+                data-testid={`card-project-${project.id}`}
+              >
+                <div
+                  aria-hidden
+                  className="font-serif text-5xl md:text-6xl font-bold leading-none text-secondary/70 md:pt-1 md:w-24 select-none"
+                >
+                  {number}
+                </div>
+
+                <div>
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <h3
+                      className="font-serif text-2xl md:text-3xl font-semibold text-foreground leading-snug"
+                      data-testid={`text-project-title-${project.id}`}
+                    >
+                      {project.title}
+                    </h3>
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        className="mt-1 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
                         data-testid={`link-project-${project.id}`}
+                        aria-label={`Open ${project.title} in a new tab`}
                         onClick={() => analytics.clickExternalLink(project.link!, project.title)}
                       >
-                        <ExternalLink className="w-5 h-5" />
+                        <ArrowUpRight className="w-6 h-6" />
                       </a>
                     )}
                   </div>
-                  <CardTitle className="font-serif text-xl md:text-2xl mt-4 group-hover:text-highlight transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm">
+
+                  <p className="text-sm text-muted-foreground mb-5">
                     <span className="font-medium text-foreground/80">{project.organization}</span>
-                    <span className="text-muted-foreground"> · {project.role}</span>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    <span> · {project.role}</span>
+                  </p>
+
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-3xl">
                     {project.description}
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <Badge key={tag} variant="secondary" className="text-xs">
@@ -114,11 +68,11 @@ export function WorkSection() {
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

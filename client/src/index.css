@@ -29,12 +29,12 @@
   --popover-border: 210 8% 90%;
   --primary: 210 29% 25%;
   --primary-foreground: 0 0% 98%;
-  --secondary: 352 43% 81%;
-  --secondary-foreground: 210 29% 25%;
+  --secondary: 352 55% 72%;
+  --secondary-foreground: 210 29% 20%;
   --muted: 210 10% 95%;
   --muted-foreground: 210 10% 45%;
-  --accent: 352 43% 81%;
-  --accent-foreground: 210 29% 25%;
+  --accent: 352 55% 72%;
+  --accent-foreground: 210 29% 20%;
   --destructive: 0 65% 35%;
   --destructive-foreground: 0 0% 98%;
   --input: 210 10% 80%;
@@ -287,5 +287,24 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  .fade-in-view {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-in-view.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in-view {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }

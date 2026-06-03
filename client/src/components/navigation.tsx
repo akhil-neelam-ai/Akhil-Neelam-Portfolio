@@ -1,56 +1,32 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Linkedin, Mail, Download, Github } from "lucide-react";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
-import { analytics } from "@/lib/analytics";
+import { ResumeButton } from "@/components/resume-button";
+import { SocialLinks } from "@/components/social-links";
+import { useActiveSection } from "@/hooks/use-active-section";
+import { useScrollToSection } from "@/hooks/use-scroll-to-section";
 
-const navItems = [
+export const navItems = [
   { id: "home", label: "Home" },
+  { id: "bio", label: "About" },
   { id: "work", label: "Work" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "speaking", label: "Speaking" },
   { id: "personal", label: "Personal" },
   { id: "contact", label: "Contact" },
-];
+] as const;
 
 export function Navigation() {
-  const [activeSection, setActiveSection] = useState("home");
+  const sectionIds = navItems.map((item) => item.id);
+  const activeSection = useActiveSection(sectionIds);
+  const scrollToSection = useScrollToSection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 0;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      analytics.navigateToSection(sectionId);
-    }
+  const handleNav = (sectionId: string) => {
+    scrollToSection(sectionId);
     setIsMobileMenuOpen(false);
   };
 
@@ -58,12 +34,18 @@ export function Navigation() {
     <>
       <nav className="fixed left-0 top-0 h-screen w-64 bg-sidebar border-r border-sidebar-border z-50 hidden lg:flex flex-col">
         <div className="p-6 border-b border-sidebar-border">
-          <h1 className="font-serif text-2xl font-bold text-sidebar-foreground">
-            Akhil Neelam
-          </h1>
-          <p className="text-sm text-sidebar-foreground/70 mt-1">
-            MBA | Founder | Technology
-          </p>
+          <button
+            type="button"
+            onClick={() => handleNav("home")}
+            className="text-left w-full"
+          >
+            <h1 className="font-serif text-2xl font-bold text-sidebar-foreground">
+              Akhil Neelam
+            </h1>
+            <p className="text-sm text-sidebar-foreground/70 mt-1">
+              MBA | Founder | Technology
+            </p>
+          </button>
         </div>
 
         <div className="flex-1 py-8 px-4">
@@ -71,7 +53,7 @@ export function Navigation() {
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNav(item.id)}
                   data-testid={`nav-${item.id}`}
                   className={`w-full text-left px-4 py-3 rounded-md transition-all duration-200 font-sans text-sm tracking-wide ${
                     activeSection === item.id
@@ -89,72 +71,20 @@ export function Navigation() {
         <div className="p-6 border-t border-sidebar-border">
           <div className="flex items-center gap-2 mb-4">
             <ThemeToggle />
-            <a
-              href="https://linkedin.com/in/akhilneelam"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-linkedin-sidebar"
-              onClick={() => analytics.clickSocial('linkedin')}
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-sidebar-foreground hover:bg-sidebar-accent"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Button>
-            </a>
-            <a
-              href="mailto:akhil_neelam@berkeley.edu"
-              data-testid="link-email-sidebar"
-              onClick={() => analytics.contactInteraction('email_click_sidebar')}
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-sidebar-foreground hover:bg-sidebar-accent"
-              >
-                <Mail className="h-5 w-5" />
-              </Button>
-            </a>
-            <a
-              href="https://github.com/akhil-neelam-ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="link-github-sidebar"
-              onClick={() => analytics.clickSocial('github')}
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-sidebar-foreground hover:bg-sidebar-accent"
-              >
-                <Github className="h-5 w-5" />
-              </Button>
-            </a>
+            <SocialLinks variant="sidebar" analyticsPrefix="sidebar" />
           </div>
-          <a
-            href="/Akhil_Neelam_Resume.pdf"
-            download="Akhil_Neelam_Resume.pdf"
-            data-testid="button-download-resume-sidebar"
-            onClick={() => analytics.downloadResume()}
-          >
-            <Button
-              variant="secondary"
-              className="w-full gap-2"
-            >
-              <Download className="h-4 w-4" />
-              Resume
-            </Button>
-          </a>
+          <ResumeButton fullWidth testId="button-download-resume-sidebar" />
         </div>
       </nav>
 
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-sidebar border-b border-sidebar-border">
         <div className="flex items-center justify-between p-4">
-          <h1 className="font-serif text-xl font-bold text-sidebar-foreground">
-            Akhil Neelam
-          </h1>
+          <button type="button" onClick={() => handleNav("home")} className="text-left">
+            <h1 className="font-serif text-xl font-bold text-sidebar-foreground">
+              Akhil Neelam
+            </h1>
+            <p className="text-xs text-sidebar-foreground/70">UC Berkeley Haas MBA</p>
+          </button>
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button
@@ -163,6 +93,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="button-mobile-menu"
               className="text-sidebar-foreground"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -184,7 +115,7 @@ export function Navigation() {
                 {navItems.map((item) => (
                   <li key={item.id}>
                     <button
-                      onClick={() => scrollToSection(item.id)}
+                      onClick={() => handleNav(item.id)}
                       data-testid={`nav-mobile-${item.id}`}
                       className={`w-full text-left px-4 py-4 rounded-md transition-all duration-200 font-sans text-base ${
                         activeSection === item.id
@@ -200,57 +131,9 @@ export function Navigation() {
 
               <div className="mt-8 pt-6 border-t border-sidebar-border">
                 <div className="flex items-center gap-4 mb-4">
-                  <a
-                    href="https://linkedin.com/in/akhilneelam"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => analytics.clickSocial('linkedin')}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-sidebar-foreground hover:bg-sidebar-accent"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                    </Button>
-                  </a>
-                  <a
-                    href="mailto:akhil_neelam@berkeley.edu"
-                    onClick={() => analytics.contactInteraction('email_click_mobile')}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-sidebar-foreground hover:bg-sidebar-accent"
-                    >
-                      <Mail className="h-5 w-5" />
-                    </Button>
-                  </a>
-                  <a
-                    href="https://github.com/akhil-neelam-ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => analytics.clickSocial('github')}
-                  >
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-sidebar-foreground hover:bg-sidebar-accent"
-                    >
-                      <Github className="h-5 w-5" />
-                    </Button>
-                  </a>
+                  <SocialLinks variant="sidebar" analyticsPrefix="mobile" />
                 </div>
-                <a
-                  href="/Akhil_Neelam_Resume.pdf"
-                  download="Akhil_Neelam_Resume.pdf"
-                  onClick={() => analytics.downloadResume()}
-                >
-                  <Button variant="secondary" className="w-full gap-2">
-                    <Download className="h-4 w-4" />
-                    Download Resume
-                  </Button>
-                </a>
+                <ResumeButton fullWidth label="Download Resume" testId="button-download-resume-mobile" />
               </div>
             </div>
           </motion.div>

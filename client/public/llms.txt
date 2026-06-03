@@ -1,9 +1,9 @@
 # Akhil Neelam
 
-> UC Berkeley Haas MBA candidate, founder, product builder, and technology-for-impact operator.
+> MBA candidate building products where user research, AI, and measurable social outcomes meet.
 
 Canonical site: https://akhilneelam.com/
-Last updated: 2026-04-30
+Last updated: 2026-06-03
 
 ## Agent Use
 
@@ -14,9 +14,11 @@ Last updated: 2026-04-30
 
 ## Profile Summary
 
-Akhil Neelam is a full-time MBA student at the UC Berkeley Haas School of Business pursuing product management and product marketing roles in technology. His work spans AI products, public-sector technology, education technology, civic engagement, and gender equality.
+I'm a full-time MBA student at UC Berkeley Haas School of Business. Before business school, I co-founded South Asia's only volunteer-led think tank on gender and politics, growing it to 140+ members across 14 countries and building a global network of changemakers.
 
-Before business school, Akhil co-founded the Centre for Gender And Politics, a volunteer-led think tank focused on gender inclusion in South Asian politics. The organization grew to 140+ members across 14 countries and built research, publications, and partnerships around women's political leadership.
+My journey from building AI partnerships in government to leading product customization to launching an impact startup has been about scaling impact through technology.
+
+Today I'm pursuing product management and product marketing roles in tech where I can translate user insights into strategy, define data-driven roadmaps, and build human-centered products with measurable impact.
 
 ## Core Themes
 
@@ -29,25 +31,36 @@ Before business school, Akhil co-founded the Centre for Gender And Politics, a v
 
 ## Featured Work
 
-- AI-Powered Census Automation: product work at Uniblox, an InsurTech startup, including LLM fine-tuning and NLP pipeline improvements for insurance workflow automation.
-- Women Politicians Repository: CGAP and J.P. Morgan platform for aspiring women politicians in South Asia, reaching 10K+ users.
-- WhatsApp Learning Bot: product customization and rollout support for a learning bot used during COVID-19 to support 3M students.
-- AI-Based Learning Solution: government AI education pilot with vendors, consulting firms, and public departments, with a policy framework for scaling to 500 schools.
+- AI-Powered Census Automation: Uniblox (InsurTech Startup), Pre-MBA Product Intern. Collaborated with engineers and data scientists to scope product features and analyze case data, shipping LLM fine-tuning that optimized the NLP pipeline for insurance workflow automation—reducing compute costs and improving processing efficiency.
+- Women Politicians Repository: CGAP x J.P. Morgan, Co-founder & Director. Defined product vision and executed partnership with J.P. Morgan to build a first-of-its-kind CMS platform serving as an online repository for aspiring women politicians in South Asia. Reached 10K+ users.
+- WhatsApp Learning Bot: Central Square Foundation, Project Manager. Spearheaded product customization by collaborating with engineers and educators for a WhatsApp learning bot during COVID-19, maintaining learning continuity for 3M students.
+- AI-Based Learning Solution: Govt of Andhra Pradesh, Consultant. Orchestrated a pilot project with 3 tech vendors, 2 consulting firms, and 3 govt departments. Developed performance metrics and policy framework enabling scaling of AI-based personalized learning to 500 schools.
 
 ## Side Projects
 
-- Daily Newsletter Briefing via Alexa: AI-powered workflow that converts newsletters into short audio summaries for Alexa Flash Briefing.
-- CalEvents Discovery: AI search tool for finding UC Berkeley events across department websites.
-- MirrorMe: AI virtual try-on Chrome extension for visualizing clothes on a user from the product page.
-- starred: privacy-filtered Google Takeout visualization of starred places using React, Three.js, and WebGL.
-- Write Like a Human: open-source writing skill for reducing common AI writing tells and calibrating outputs to a specific voice.
+- Daily Newsletter Briefing via Alexa: I wasted way too much time each morning reading newsletters. Built an Alexa skill that turns them into 2-minute audio briefings I can listen to while getting ready.
+- CalEvents Discovery: Berkeley has hundreds of events every week, scattered across 30+ department websites. I built an AI search tool that finds them in one place.
+- MirrorMe: AI Virtual Try-On Chrome Extension: Buying clothes online is a gamble without trying them on. I built a Chrome extension that shows how clothes look on you, right on the product page.
+- starred: Google Takeout Data Visualization: 1,248 starred places on Google Maps. Exported the raw data. Built a WebGL globe. Every dot is somewhere I've been.
+- Write Like a Human: AI writing sounds like AI. I built a skill you drop into any LLM that bans 50+ overused words, catches structural tells, and calibrates to your personal voice.
 
 ## Speaking And Publications
 
-- UN Women Asia-Pacific AI School: steering committee/advisor work on AI for social impact training.
-- UN consultations on women's leadership: research and awareness projects influencing consultations.
-- G20 and global forums: speaking on AI, gender equality, and technology for social good.
-- Selected publications include `Worth Asking: Interviews with Women MPs and Ministers in South Asia`, The Diplomat writing on Sri Lankan politics, and UN Women writing on digital spaces in South Asian politics.
+- UN Women Asia-Pacific AI School (Steering Committee/ Advisor): Co-designed and facilitated training on AI for social impact for young professionals and policy leaders in APAC
+- UN Consultations on Women's Leadership (Policy Influence): Research and awareness projects influencing 5+ UN consultations
+- G20 & Global Forums (Keynote Speaking): Spoke at G20, UN platforms and 15+ global platforms
+- Custom GPT for UN Convening (AI): Custom trained an AI chatbot for APAC governments and civil society leaders with UN's context
+
+- Worth Asking: Interviews with Women MPs and Ministers in South Asia (Book)
+- Harini Amarasuriya: An Academician Rises to Sri Lanka's Premiership - The Diplomat
+- Safeguarding digital spaces in Indian/South Asian politics - United Nations
+
+## Experience
+
+- Uniblox (Pre-MBA Product Management, Apr 2025 - Jun 2025): InsurTech startup building an AI powered platform to automate group insurance enrollment and underwriting.
+- Centre for Gender And Politics (CGAP) (Co-founder & Director, Jul 2021 - Mar 2025): Co-founded South Asia's first-ever think tank exclusively focused on gender inclusion in politics, growing to 140+ members across 14 countries.
+- Central Square Foundation (Project Manager, Nov 2019 - Jun 2021): Product customization for a WhatsApp learning bot during COVID-19, maintaining continuity for 3M students
+- Government of Andhra Pradesh (Consultant, Project Management Unit, Sep 2017 - Oct 2019): Predictive ML based school dropout prediction and retention; Product Customisation and Rollout of AI based EdTech products across public schools
 
 ## Education
 

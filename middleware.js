@@ -1,4 +1,5 @@
 import { next } from "@vercel/functions";
+import { portfolioSummary } from "./api/llms-content.js";
 
 const agentDiscoveryLink = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
@@ -23,18 +24,12 @@ export default async function middleware(request) {
   const accept = request.headers.get("accept")?.toLowerCase() || "";
 
   if (accept.includes("text/markdown")) {
-    const llmsUrl = new URL("/llms.txt", request.url);
-    const response = await fetch(llmsUrl, {
-      headers: { Accept: "text/markdown" },
-    });
-    const text = await response.text();
-
-    return new Response(text, {
-      status: response.ok ? 200 : response.status,
+    return new Response(portfolioSummary, {
+      status: 200,
       headers: {
-        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
         "Content-Type": "text/markdown; charset=utf-8",
-        "x-markdown-tokens": estimateMarkdownTokens(text),
+        "x-markdown-tokens": estimateMarkdownTokens(portfolioSummary),
         Link: agentDiscoveryLink,
       },
     });

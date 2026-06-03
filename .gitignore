@@ -7,3 +7,4 @@ vite.config.ts.*
 .config/
 .local/
 test-analytics.html
+attached_assets/
