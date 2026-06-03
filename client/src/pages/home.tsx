@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Navigation } from "@/components/navigation";
 import { HeroSection } from "@/components/hero-section";
-import { BioSection } from "@/components/bio-section";
 import { BackToTop } from "@/components/back-to-top";
 
 const WorkSection = lazy(() =>
@@ -35,7 +34,6 @@ export default function Home() {
       <main className="lg:ml-64">
         <div className="pt-16 lg:pt-0">
           <HeroSection />
-          <BioSection />
           <Suspense fallback={<SectionFallback />}>
             <WorkSection />
             <ProjectsSection />

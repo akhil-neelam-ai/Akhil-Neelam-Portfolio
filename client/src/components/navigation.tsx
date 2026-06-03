@@ -10,7 +10,6 @@ import { useScrollToSection } from "@/hooks/use-scroll-to-section";
 
 export const navItems = [
   { id: "home", label: "Home" },
-  { id: "bio", label: "About" },
   { id: "work", label: "Work" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
