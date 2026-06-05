@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -7,6 +7,7 @@ import { ResumeButton } from "@/components/resume-button";
 import { SocialLinks } from "@/components/social-links";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { useScrollToSection } from "@/hooks/use-scroll-to-section";
+import { preloadSection } from "@/lib/section-loaders";
 
 export const navItems = [
   { id: "home", label: "Home" },
@@ -29,6 +30,15 @@ export function Navigation() {
     scrollToSection(sectionId);
     setIsMobileMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -54,8 +64,10 @@ export function Navigation() {
               <li key={item.id}>
                 <button
                   onClick={() => handleNav(item.id)}
+                  onMouseEnter={() => preloadSection(item.id)}
+                  onFocus={() => preloadSection(item.id)}
                   data-testid={`nav-${item.id}`}
-                  className={`w-full text-left px-4 py-3 rounded-md transition-all duration-200 font-sans text-sm tracking-wide ${
+                  className={`w-full text-left px-4 py-3 rounded-md transition-all duration-200 font-sans text-sm tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${
                     activeSection === item.id
                       ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
                       : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -116,8 +128,10 @@ export function Navigation() {
                   <li key={item.id}>
                     <button
                       onClick={() => handleNav(item.id)}
+                      onMouseEnter={() => preloadSection(item.id)}
+                      onFocus={() => preloadSection(item.id)}
                       data-testid={`nav-mobile-${item.id}`}
-                      className={`w-full text-left px-4 py-4 rounded-md transition-all duration-200 font-sans text-base ${
+                      className={`w-full text-left px-4 py-4 rounded-md transition-all duration-200 font-sans text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${
                         activeSection === item.id
                           ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
                           : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getScrollBehavior } from "@/lib/motion";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,7 +24,7 @@ export function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: getScrollBehavior() });
   };
 
   if (!isVisible) return null;
