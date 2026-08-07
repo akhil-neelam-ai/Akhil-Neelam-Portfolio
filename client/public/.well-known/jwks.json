@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "n": "smMMOEl9e7XrMGMONgYDJSNVvkCEP_yXv82UJLEBeB8GKFiAqYmLeagusl7NwCUfDmx4yRL-z6i-e3g8exdHWW_8hi8_YkhBUcjrQydQ-cL7XpGCnZvAJ4X-GUckUactWwxdLvtO6bdTMkTdK0q9WruVH60Kulr_KD6zxTTgMttgWdzyTfUp0rvkCNmnhh6nO-OSIHXm8w4q09hQPSUlRh_iEjmxw9e0QvX4k5-OcQWyzlVob9Inui8DS7D3SLWXJGkUd5BtWJIcpT17srL7HIMXYZuVA-3x5QqK2WRuIiQK3V6YOUATRh6HIzTqUqVZ8km223UobW87FQ8Nitg9LQ",
+      "e": "AQAB",
+      "kid": "portfolio-2026",
+      "alg": "RS256",
+      "use": "sig"
+    }
+  ]
+}

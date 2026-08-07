@@ -1,0 +1,21 @@
+{
+  "issuer": "https://akhilneelam.com",
+  "authorization_endpoint": "https://akhilneelam.com/oauth/authorize",
+  "token_endpoint": "https://akhilneelam.com/oauth/token",
+  "revocation_endpoint": "https://akhilneelam.com/oauth/revoke",
+  "jwks_uri": "https://akhilneelam.com/.well-known/jwks.json",
+  "registration_endpoint": "https://akhilneelam.com/api/agent/register",
+  "grant_types_supported": [
+    "client_credentials",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "response_types_supported": ["token"],
+  "subject_types_supported": ["public"],
+  "id_token_signing_alg_values_supported": ["RS256"],
+  "token_endpoint_auth_methods_supported": ["none", "client_secret_post"],
+  "scopes_supported": ["openid", "portfolio.read"],
+  "claims_supported": ["sub", "email"],
+  "code_challenge_methods_supported": ["S256"],
+  "service_documentation": "https://akhilneelam.com/auth.md"
+}

@@ -14,9 +14,27 @@
   </url>
   <url>
     <loc>https://akhilneelam.com/agent.md</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akhilneelam.com/auth.md</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://akhilneelam.com/.well-known/oauth-protected-resource</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://akhilneelam.com/.well-known/oauth-authorization-server</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://akhilneelam.com/Akhil_Neelam_Resume.pdf</loc>

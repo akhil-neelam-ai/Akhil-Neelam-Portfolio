@@ -1,0 +1,9 @@
+{
+  "resource": "https://akhilneelam.com/",
+  "resource_name": "Akhil Neelam Portfolio",
+  "resource_documentation": "https://akhilneelam.com/auth.md",
+  "authorization_servers": ["https://akhilneelam.com"],
+  "scopes_supported": ["portfolio.read"],
+  "bearer_methods_supported": ["header"],
+  "resource_signing_alg_values_supported": ["RS256"]
+}

@@ -5,10 +5,13 @@ const agentDiscoveryLink = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
   '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
   '</agent.md>; rel="service-doc"; type="text/markdown"',
+  '</auth.md>; rel="service-doc"; type="text/markdown"',
   '</llms.txt>; rel="describedby"; type="text/markdown"',
   '</health.json>; rel="status"; type="application/json"',
   '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"',
   '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
+  '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"; type="application/json"',
+  '</.well-known/oauth-authorization-server>; rel="oauth-authorization-server"; type="application/json"',
 ].join(", ");
 
 function estimateMarkdownTokens(markdown) {

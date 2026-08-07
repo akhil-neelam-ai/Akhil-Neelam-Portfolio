@@ -1,0 +1,30 @@
+; DNS for AI Discovery (DNS-AID) records for akhilneelam.com
+; Publish under Squarespace Domains → DNS → Custom records.
+; Host values omit the apex (Squarespace appends .akhilneelam.com).
+;
+; After publishing, enable/confirm DNSSEC in Squarespace Domains
+; (DNSKEY/DS should appear for validating resolvers).
+
+; Well-known index entrypoint (HTTPS ServiceMode)
+; Type: HTTPS | Host: _index._agents | Data:
+; 1 akhilneelam.com. alpn="h2,h3" port=443
+_index._agents.akhilneelam.com. 3600 IN HTTPS 1 akhilneelam.com. alpn="h2,h3" port=443
+
+; Well-known index entrypoint (SVCB ServiceMode)
+; Type: SVCB | Host: _index._agents | Data:
+; 1 akhilneelam.com. alpn="h2,h3" port=443 mandatory=alpn,port
+_index._agents.akhilneelam.com. 3600 IN SVCB 1 akhilneelam.com. alpn="h2,h3" port=443 mandatory=alpn,port
+
+; MCP agent entrypoint
+; Type: HTTPS | Host: _mcp._agents | Data:
+; 1 akhilneelam.com. alpn="h2,h3" port=443
+_mcp._agents.akhilneelam.com. 3600 IN HTTPS 1 akhilneelam.com. alpn="h2,h3" port=443
+
+; Type: SVCB | Host: _mcp._agents | Data:
+; 1 akhilneelam.com. alpn="h2,h3" port=443 mandatory=alpn,port
+_mcp._agents.akhilneelam.com. 3600 IN SVCB 1 akhilneelam.com. alpn="h2,h3" port=443 mandatory=alpn,port
+
+; Optional TXT index for crawlers that read TXT first
+; Type: TXT | Host: _index._agents | Data:
+; agents=portfolio:mcp
+_index._agents.akhilneelam.com. 3600 IN TXT "agents=portfolio:mcp"

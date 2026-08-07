@@ -43,3 +43,19 @@ vercel.json       Build output, security headers, rewrites
 ## MCP
 
 `POST /api/mcp` implements JSON-RPC for `get_portfolio_summary`. Content is synced from `client/src/data/` at build time.
+
+## Agent auth discovery
+
+Public auth discovery files:
+
+- `/auth.md`
+- `/.well-known/oauth-protected-resource`
+- `/.well-known/oauth-authorization-server`
+- `/.well-known/openid-configuration`
+- `/.well-known/jwks.json`
+
+Token helpers: `POST /api/agent/register`, `POST /oauth/token`.
+
+## DNS-AID
+
+Publish SVCB/HTTPS records under `_agents` (see `dns/README.md`). DNS lives on Squarespace/Google Domains nameservers, so those records must be added in the Squarespace Domains DNS UI.

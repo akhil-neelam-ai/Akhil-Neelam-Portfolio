@@ -10,6 +10,7 @@ This page is optimized for AI agents and retrieval systems that need a reliable 
 4. Use `/openapi.json` and `/.well-known/api-catalog` for the resume download surface.
 5. Use `/.well-known/agent-skills/index.json` to discover agent-specific instructions.
 6. Use `/.well-known/mcp/server-card.json` for the MCP-compatible portfolio summary tool.
+7. Use `/auth.md` and `/.well-known/oauth-protected-resource` when you need auth discovery.
 
 ## What The Site Represents
 

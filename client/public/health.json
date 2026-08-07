@@ -1,11 +1,15 @@
 {
   "status": "ok",
   "service": "akhil-neelam-portfolio",
-  "updated": "2026-04-30",
+  "updated": "2026-08-07",
   "resources": {
     "summary": "https://akhilneelam.com/llms.txt",
     "agentGuide": "https://akhilneelam.com/agent.md",
+    "auth": "https://akhilneelam.com/auth.md",
     "resume": "https://akhilneelam.com/Akhil_Neelam_Resume.pdf",
-    "mcp": "https://akhilneelam.com/api/mcp"
+    "mcp": "https://akhilneelam.com/api/mcp",
+    "oauthProtectedResource": "https://akhilneelam.com/.well-known/oauth-protected-resource",
+    "oauthAuthorizationServer": "https://akhilneelam.com/.well-known/oauth-authorization-server",
+    "openidConfiguration": "https://akhilneelam.com/.well-known/openid-configuration"
   }
 }

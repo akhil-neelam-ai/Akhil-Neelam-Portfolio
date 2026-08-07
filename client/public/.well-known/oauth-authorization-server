@@ -1,0 +1,34 @@
+{
+  "issuer": "https://akhilneelam.com",
+  "authorization_endpoint": "https://akhilneelam.com/oauth/authorize",
+  "token_endpoint": "https://akhilneelam.com/oauth/token",
+  "revocation_endpoint": "https://akhilneelam.com/oauth/revoke",
+  "jwks_uri": "https://akhilneelam.com/.well-known/jwks.json",
+  "registration_endpoint": "https://akhilneelam.com/api/agent/register",
+  "grant_types_supported": [
+    "client_credentials",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "response_types_supported": ["token"],
+  "token_endpoint_auth_methods_supported": ["none", "client_secret_post"],
+  "scopes_supported": ["portfolio.read"],
+  "code_challenge_methods_supported": ["S256"],
+  "service_documentation": "https://akhilneelam.com/auth.md",
+  "agent_auth": {
+    "skill": "https://akhilneelam.com/auth.md",
+    "register_uri": "https://akhilneelam.com/api/agent/register",
+    "identity_endpoint": "https://akhilneelam.com/api/agent/register",
+    "claim_endpoint": "https://akhilneelam.com/api/agent/claim",
+    "identity_types_supported": ["anonymous", "identity_assertion"],
+    "anonymous": {
+      "credential_types_supported": ["access_token"],
+      "claim_uri": "https://akhilneelam.com/api/agent/claim"
+    },
+    "identity_assertion": {
+      "assertion_types_supported": ["verified_email"],
+      "credential_types_supported": ["access_token"],
+      "claim_uri": "https://akhilneelam.com/api/agent/claim"
+    }
+  }
+}
