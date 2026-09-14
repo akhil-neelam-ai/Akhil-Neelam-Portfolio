@@ -8,10 +8,12 @@ Change files under `client/src/data/`, then `npm run generate:llms` or any build
 
 ## Deploy
 
+Pushing to `main` deploys production through Vercel's GitHub integration. Do not also run `vercel --prod`, which deploys a second time.
+
 ```bash
 npm run build
 npx tsc --noEmit
-vercel --prod
+git push origin main
 ```
 
 `attached_assets/` is gitignored; run `npm run optimize:images` locally before build if images change.

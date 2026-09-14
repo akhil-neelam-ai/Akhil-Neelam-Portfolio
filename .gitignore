@@ -9,3 +9,5 @@ vite.config.ts.*
 test-analytics.html
 attached_assets/
 .vercel
+.jez/
+.claude/worktrees/
