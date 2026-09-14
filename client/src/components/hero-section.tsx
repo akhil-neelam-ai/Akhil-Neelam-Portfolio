@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsiveImage } from "@/components/responsive-image";
+import { ResumeButton } from "@/components/resume-button";
 import { heroParagraphs, profile } from "@/data/bio";
 import { useScrollToSection } from "@/hooks/use-scroll-to-section";
 
@@ -19,13 +20,13 @@ export function HeroSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-background to-background dark:from-accent/15" />
 
-      <div className="container max-w-6xl mx-auto px-6 md:px-8 py-20 relative z-10">
+      <div className="container max-w-6xl mx-auto px-6 md:px-8 pt-10 pb-20 lg:py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="order-2 lg:order-1"
+            className="order-1"
           >
             <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4 font-sans">
               {profile.eyebrow}
@@ -42,6 +43,9 @@ export function HeroSection() {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
+              <div className="lg:hidden">
+                <ResumeButton size="lg" testId="button-download-resume-hero" />
+              </div>
               <Button
                 size="lg"
                 variant="outline"
@@ -58,7 +62,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="order-2 flex justify-center"
           >
             <div className="relative w-full max-w-sm aspect-[3/4]">
               <div className="relative h-full w-full bg-card rounded-2xl overflow-hidden shadow-lg border border-card-border">
