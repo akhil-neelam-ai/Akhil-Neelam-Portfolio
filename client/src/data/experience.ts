@@ -10,6 +10,15 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     id: 1,
+    company: "Volt AI",
+    role: "Product/ AI Automation",
+    period: "May 2026 - Present",
+    location: "San Francisco Bay Area, CA",
+    description:
+      "Series A startup building an AI video intelligence platform for incident detection.",
+  },
+  {
+    id: 2,
     company: "Uniblox",
     role: "Pre-MBA Product Management",
     period: "Apr 2025 - Jun 2025",
@@ -18,7 +27,7 @@ export const experiences: Experience[] = [
       "InsurTech startup building an AI powered platform to automate group insurance enrollment and underwriting.",
   },
   {
-    id: 2,
+    id: 3,
     company: "Centre for Gender And Politics (CGAP)",
     role: "Co-founder & Director",
     period: "Jul 2021 - Mar 2025",
@@ -27,7 +36,7 @@ export const experiences: Experience[] = [
       "Co-founded South Asia's first-ever think tank exclusively focused on gender inclusion in politics, growing to 140+ members across 14 countries.",
   },
   {
-    id: 3,
+    id: 4,
     company: "Central Square Foundation",
     role: "Project Manager",
     period: "Nov 2019 - Jun 2021",
@@ -36,7 +45,7 @@ export const experiences: Experience[] = [
       "Product customization for a WhatsApp learning bot during COVID-19, maintaining continuity for 3M students",
   },
   {
-    id: 4,
+    id: 5,
     company: "Government of Andhra Pradesh",
     role: "Consultant, Project Management Unit",
     period: "Sep 2017 - Oct 2019",
