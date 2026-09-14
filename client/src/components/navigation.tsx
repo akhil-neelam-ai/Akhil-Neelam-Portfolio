@@ -11,8 +11,8 @@ import { preloadSection } from "@/lib/section-loaders";
 
 export const navItems = [
   { id: "home", label: "Home" },
-  { id: "work", label: "Work" },
-  { id: "projects", label: "Projects" },
+  { id: "work", label: "Featured Work" },
+  { id: "projects", label: "Side Projects" },
   { id: "experience", label: "Experience" },
   { id: "speaking", label: "Speaking" },
   { id: "personal", label: "Personal" },
@@ -49,9 +49,9 @@ export function Navigation() {
             onClick={() => handleNav("home")}
             className="text-left w-full"
           >
-            <h1 className="font-serif text-2xl font-bold text-sidebar-foreground">
+            <p className="font-serif text-2xl font-bold text-sidebar-foreground">
               Akhil Neelam
-            </h1>
+            </p>
             <p className="text-sm text-sidebar-foreground/70 mt-1">
               MBA | Founder | Technology
             </p>
@@ -92,9 +92,9 @@ export function Navigation() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-sidebar border-b border-sidebar-border">
         <div className="flex items-center justify-between p-4">
           <button type="button" onClick={() => handleNav("home")} className="text-left">
-            <h1 className="font-serif text-xl font-bold text-sidebar-foreground">
+            <p className="font-serif text-xl font-bold text-sidebar-foreground">
               Akhil Neelam
-            </h1>
+            </p>
             <p className="text-xs text-sidebar-foreground/70">UC Berkeley Haas MBA</p>
           </button>
           <div className="flex items-center gap-2">

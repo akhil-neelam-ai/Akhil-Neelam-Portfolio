@@ -19,22 +19,22 @@ export function ExperienceSection() {
               data-testid={`card-experience-${experience.id}`}
             >
               <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
-              <div className="absolute left-0 top-1 w-2 h-2 rounded-full -translate-x-1/2 bg-secondary" />
+              <div className="absolute left-0 top-1 w-2 h-2 rounded-full -translate-x-1/2 bg-secondary dark:bg-primary" />
 
-              <div className="border-l-2 border-secondary/40 pl-6 py-1">
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
+              <div className="border-l-2 border-secondary/40 dark:border-primary/40 pl-6 py-1">
+                <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] items-start gap-4 mb-3">
                   <div>
                     <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
                       {experience.company}
                     </h3>
                     <p className="text-lg text-muted-foreground">{experience.role}</p>
                   </div>
-                  <div className="text-right text-sm text-muted-foreground">
-                    <div className="flex items-center justify-end gap-2 mb-1">
+                  <div className="text-left sm:text-right text-sm text-muted-foreground">
+                    <div className="flex items-center justify-start sm:justify-end gap-2 mb-1">
                       <Calendar className="w-4 h-4" />
                       {experience.period}
                     </div>
-                    <div className="flex items-center justify-end gap-2">
+                    <div className="flex items-center justify-start sm:justify-end gap-2">
                       <MapPin className="w-4 h-4" />
                       {experience.location}
                     </div>

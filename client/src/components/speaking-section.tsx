@@ -73,7 +73,7 @@ export function SpeakingSection() {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="-m-3 p-3 rounded-md text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`link-speaking-${item.id}`}
                       aria-label={`Open ${item.title} in a new tab`}
                       onClick={() => analytics.clickExternalLink(item.link!, item.title)}

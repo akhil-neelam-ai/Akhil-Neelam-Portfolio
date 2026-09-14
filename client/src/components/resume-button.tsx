@@ -19,17 +19,21 @@ export function ResumeButton({
   testId = "button-download-resume",
 }: ResumeButtonProps) {
   return (
-    <a
-      href={contact.resumePath}
-      download={contact.resumeFileName}
-      data-testid={testId}
-      className={fullWidth ? "block w-full" : undefined}
-      onClick={() => analytics.downloadResume()}
+    <Button
+      asChild
+      variant="secondary"
+      size={size}
+      className={`dark:bg-primary dark:text-primary-foreground dark:border-primary-border ${className ?? (fullWidth ? "w-full gap-2" : "gap-2")}`}
     >
-      <Button variant="secondary" size={size} className={className ?? (fullWidth ? "w-full gap-2" : "gap-2")}>
+      <a
+        href={contact.resumePath}
+        download={contact.resumeFileName}
+        data-testid={testId}
+        onClick={() => analytics.downloadResume()}
+      >
         <Download className="h-4 w-4" />
         {label}
-      </Button>
-    </a>
+      </a>
+    </Button>
   );
 }

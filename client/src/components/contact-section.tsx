@@ -21,7 +21,7 @@ export function ContactSection() {
               <p className="text-sm text-muted-foreground mb-1">Email</p>
               <a
                 href={`mailto:${contact.email}`}
-                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors py-3 -my-3"
                 data-testid="link-email-contact"
                 onClick={() => analytics.contactInteraction("email_click_contact")}
               >
@@ -36,7 +36,7 @@ export function ContactSection() {
                 href={contact.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors py-3 -my-3 inline-flex items-center gap-1"
                 data-testid="link-linkedin-contact"
                 onClick={() => analytics.clickSocial("linkedin")}
               >
@@ -52,7 +52,7 @@ export function ContactSection() {
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+                className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors py-3 -my-3 inline-flex items-center gap-1"
                 data-testid="link-github-contact"
                 onClick={() => analytics.clickSocial("github")}
               >

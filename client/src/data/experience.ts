@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    company: "Centre for Gender And Politics (CGAP)",
+    company: "Centre for Gender and Politics (CGAP)",
     role: "Co-founder & Director",
     period: "Jul 2021 - Mar 2025",
     location: "India",
@@ -51,6 +51,6 @@ export const experiences: Experience[] = [
     period: "Sep 2017 - Oct 2019",
     location: "India",
     description:
-      "Predictive ML based school dropout prediction and retention; Product Customisation and Rollout of AI based EdTech products across public schools",
+      "Predictive ML based school dropout prediction and retention; product customization and rollout of AI based EdTech products across public schools",
   },
 ];

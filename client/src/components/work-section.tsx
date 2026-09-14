@@ -20,7 +20,7 @@ export function WorkSection() {
               <li
                 key={project.id}
                 className="fade-in-view grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-10 gap-y-4 py-10 md:py-14 group"
-                data-testid={`card-project-${project.id}`}
+                data-testid={`card-featured-${project.id}`}
               >
                 <div
                   aria-hidden
@@ -33,7 +33,7 @@ export function WorkSection() {
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <h3
                       className="font-serif text-2xl md:text-3xl font-semibold text-foreground leading-snug"
-                      data-testid={`text-project-title-${project.id}`}
+                      data-testid={`text-featured-title-${project.id}`}
                     >
                       {project.title}
                     </h3>
@@ -42,7 +42,7 @@ export function WorkSection() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-1 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                        className="-m-2.5 -mt-1.5 p-2.5 rounded-md text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
                         data-testid={`link-project-${project.id}`}
                         aria-label={`Open ${project.title} in a new tab`}
                         onClick={() => analytics.clickExternalLink(project.link!, project.title)}

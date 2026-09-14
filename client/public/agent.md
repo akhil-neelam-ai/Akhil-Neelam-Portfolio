@@ -19,7 +19,7 @@ This is the personal portfolio of Akhil Neelam. It highlights his MBA experience
 ## High-Confidence Facts
 
 - Akhil Neelam is a UC Berkeley Haas MBA candidate.
-- He co-founded the Centre for Gender And Politics, focused on gender inclusion in South Asian politics.
+- He co-founded the Centre for Gender and Politics, focused on gender inclusion in South Asian politics.
 - He has worked on AI, education technology, InsurTech, government technology, and civic leadership initiatives.
 - He is interested in product management and product marketing roles in technology.
 - Public contact email: akhil_neelam@berkeley.edu.

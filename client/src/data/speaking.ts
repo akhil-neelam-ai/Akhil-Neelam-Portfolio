@@ -14,7 +14,7 @@ export const speakingHighlights: SpeakingHighlight[] = [
   {
     id: 1,
     title: "UN Women Asia-Pacific AI School",
-    type: "Steering Committee/ Advisor",
+    type: "Steering Committee / Advisor",
     description:
       "Co-designed and facilitated training on AI for social impact for young professionals and policy leaders in APAC",
     icon: Award,

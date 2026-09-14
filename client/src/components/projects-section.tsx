@@ -111,32 +111,34 @@ function ProjectModal({
           </div>
           <div className="flex flex-wrap gap-2 pt-2">
             {project.demoLink && (
-              <a
-                href={project.demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open live demo for ${project.title}`}
-                onClick={() => analytics.clickProject(project.title, "demo")}
-              >
-                <Button size="sm" variant="default" className="gap-1.5 h-8" data-testid="button-project-demo-top">
+              <Button asChild size="sm" variant="default" className="gap-1.5 h-8">
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open live demo for ${project.title}`}
+                  data-testid="button-project-demo-top"
+                  onClick={() => analytics.clickProject(project.title, "demo")}
+                >
                   <ExternalLink className="w-3.5 h-3.5" />
                   Watch it live
-                </Button>
-              </a>
+                </a>
+              </Button>
             )}
             {project.githubLink && (
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open GitHub repository for ${project.title}`}
-                onClick={() => analytics.clickProject(project.title, "github")}
-              >
-                <Button size="sm" variant="outline" className="gap-1.5 h-8" data-testid="button-project-github-top">
+              <Button asChild size="sm" variant="outline" className="gap-1.5 h-8">
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open GitHub repository for ${project.title}`}
+                  data-testid="button-project-github-top"
+                  onClick={() => analytics.clickProject(project.title, "github")}
+                >
                   <Github className="w-3.5 h-3.5" />
                   GitHub
-                </Button>
-              </a>
+                </a>
+              </Button>
             )}
           </div>
           <DialogDescription className="sr-only">Details about {project.title}</DialogDescription>

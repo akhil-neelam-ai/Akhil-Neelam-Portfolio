@@ -37,7 +37,7 @@ export function ResponsiveImage({
         height={height}
         loading={loading}
         decoding="async"
-        fetchPriority={fetchPriority}
+        {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
         sizes={sizes}
       />
     </picture>

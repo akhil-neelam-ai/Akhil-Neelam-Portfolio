@@ -39,7 +39,7 @@ export function PersonalSection() {
                         {" "}
                         <button
                           type="button"
-                          className="text-primary font-medium hover:underline inline"
+                          className="text-primary font-medium hover:underline inline-block py-3 -my-3"
                           onClick={() => scrollToSection("projects")}
                         >
                           View projects

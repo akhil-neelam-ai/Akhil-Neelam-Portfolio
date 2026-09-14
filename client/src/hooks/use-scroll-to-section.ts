@@ -15,7 +15,7 @@ export function useScrollToSection() {
 
       const currentHash = window.location.hash.slice(1);
       if (currentHash !== sectionId) {
-        window.history.replaceState(null, "", `#${sectionId}`);
+        window.history.pushState(null, "", `#${sectionId}`);
       }
 
       if (options?.track !== false) {
