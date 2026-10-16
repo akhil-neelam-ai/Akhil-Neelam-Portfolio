@@ -78,6 +78,26 @@ export type SideProject = {
 
 export const sideProjects: SideProject[] = [
   {
+    id: 6,
+    title: "Worth Applying?: Job Fit Scores on Any Posting",
+    briefDescription:
+      "I ran my resume against 101 job postings. Only 13 were a strong fit. I built a Chrome extension that scores any posting in about a second. It runs on a decision model, not a chatbot.",
+    techStack: ["Chrome Extension (MV3)", "JavaScript", "TypeSafe Jev", "Decision Models", "Evals", "Vercel", "PostHog"],
+    overviewLabel: "The Story",
+    overview:
+      "Recruiting for product roles meant reading a lot of job postings. Most turned out to be long shots. Finding that out took a close read, and sometimes a tailored resume. I wanted the answer up front, on LinkedIn or on a company's careers page.",
+    challengeLabel: "What I Built",
+    challenge:
+      "Open a posting, click the icon, and a popup shows a fit score from 1 to 10 with a recommendation. A six-part scorecard shows where you match, from required qualifications to domain. It also names the main factor and, if you need it, the odds the company sponsors visas.\n\nUnder the hood is TypeSafe's Jev, a decision model. It answers typed questions with probabilities instead of writing text, so each score costs a fraction of a cent. One call asks nine questions about the same resume and job. The extension turns the answers into the score.\n\nYour resume and API key stay in your browser. I launched it on the Chrome Web Store with a short setup guide, and the code is open source.",
+    solutionLabel: "How I Tested It",
+    solution:
+      "A score only helps if it agrees with a careful reviewer. Lenny's Jobs writes a full \"Am I a fit?\" review for one job at a time, so I used it as my benchmark. I tuned the scoring on a separate set of jobs first. Then I scored 101 new postings against my resume and compared. 93 of the 101 scores matched or landed within 1 point, and the average gap was 0.6.",
+    productInsight:
+      "A decision model doesn't write anything. You give it a situation and a set of typed questions, and it returns probabilities. So most of the work moved from prompting to writing good questions. Each one has to mean exactly one thing, or the probabilities blur.\n\nAsking six smaller questions next to the big one made the score explainable. You can see which part of the match pulled it down. Typed answers also made it testable: I could check every number against a benchmark instead of grading paragraphs.",
+    demoLink: "https://worth-applying.vercel.app",
+    githubLink: "https://github.com/akhil-neelam-ai/worth-applying",
+  },
+  {
     id: 1,
     title: "Daily Newsletter Briefing via Alexa",
     briefDescription:

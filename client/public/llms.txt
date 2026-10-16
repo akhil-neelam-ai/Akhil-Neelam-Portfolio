@@ -38,6 +38,7 @@ Today I'm pursuing product management and product marketing roles in tech where 
 
 ## Side Projects
 
+- Worth Applying?: Job Fit Scores on Any Posting: I ran my resume against 101 job postings. Only 13 were a strong fit. I built a Chrome extension that scores any posting in about a second. It runs on a decision model, not a chatbot.
 - Daily Newsletter Briefing via Alexa: I wasted way too much time each morning reading newsletters. Built an Alexa skill that turns them into 2-minute audio briefings I can listen to while getting ready.
 - CalEvents Discovery: Berkeley has hundreds of events every week, scattered across 30+ department websites. I built an AI search tool that finds them in one place.
 - MirrorMe: AI Virtual Try-On Chrome Extension: Buying clothes online is a gamble without trying them on. I built a Chrome extension that shows how clothes look on you, right on the product page.

@@ -149,13 +149,13 @@ function ProjectModal({
             <h4 className="font-semibold text-foreground mb-2">
               {project.overviewLabel || "Project Overview"}
             </h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">{project.overview}</p>
+            <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{project.overview}</p>
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-2">
               {project.challengeLabel || "The Challenge"}
             </h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">{project.challenge}</p>
+            <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{project.challenge}</p>
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-2">
@@ -170,7 +170,7 @@ function ProjectModal({
               <h4 className="font-semibold text-foreground mb-2">
                 {project.productInsightLabel || "What I Learned"}
               </h4>
-              <p className="text-muted-foreground text-sm leading-relaxed">{project.productInsight}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line">{project.productInsight}</p>
             </div>
           ) : null}
           <div>
