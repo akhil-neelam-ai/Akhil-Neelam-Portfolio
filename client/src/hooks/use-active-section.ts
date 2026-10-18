@@ -1,4 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+
+// A section becomes active once its top scrolls above this fraction of the viewport.
+const ACTIVE_LINE_RATIO = 0.5;
 
 function readInitialFromHash(sectionIds: readonly string[]): string {
   if (typeof window === "undefined") return sectionIds[0] ?? "home";
@@ -11,81 +14,51 @@ export function useActiveSection(sectionIds: readonly string[]) {
     readInitialFromHash(sectionIds),
   );
   const idsKey = sectionIds.join(",");
-  const ratiosRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => {
     const ids = idsKey ? idsKey.split(",") : [];
     if (ids.length === 0) return;
 
-    const ratios = ratiosRef.current;
-    for (const id of ids) {
-      if (!ratios.has(id)) ratios.set(id, 0);
-    }
-    for (const key of Array.from(ratios.keys())) {
-      if (!ids.includes(key)) ratios.delete(key);
-    }
+    // Sections stack with no gaps, so the last one whose top is above the line is
+    // the one filling the middle of the screen. At the very bottom of the page the
+    // last section wins, even when it is too short to reach the line.
+    const update = () => {
+      const line = window.innerHeight * ACTIVE_LINE_RATIO;
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1;
 
-    const observed = new Set<HTMLElement>();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
-        }
-
-        let topId = "";
-        let topRatio = 0;
-        for (const id of ids) {
-          const ratio = ratios.get(id) ?? 0;
-          if (ratio > topRatio) {
-            topRatio = ratio;
-            topId = id;
-          }
-        }
-
-        if (topId) {
-          setActiveSection(topId);
-          const currentHash = window.location.hash.slice(1);
-          if (currentHash !== topId) {
-            window.history.replaceState(null, "", `#${topId}`);
-          }
-        }
-      },
-      {
-        rootMargin: "-20% 0px -35% 0px",
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
-      }
-    );
-
-    const tryObserve = () => {
+      let topId = "";
       for (const id of ids) {
+        // Lazy-loaded sections are skipped until they mount.
         const el = document.getElementById(id);
-        if (el && !observed.has(el)) {
-          observed.add(el);
-          observer.observe(el);
+        if (el && (atBottom || el.getBoundingClientRect().top <= line)) topId = id;
+      }
+
+      if (topId) {
+        setActiveSection(topId);
+        const currentHash = window.location.hash.slice(1);
+        if (currentHash !== topId) {
+          window.history.replaceState(null, "", `#${topId}`);
         }
       }
     };
 
-    tryObserve();
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    // Sections may be lazy-loaded (React.lazy + Suspense), so observe DOM
-    // mutations until every target id has been attached to the IntersectionObserver.
-    let mutationObserver: MutationObserver | null = null;
-    if (observed.size < ids.length) {
-      mutationObserver = new MutationObserver(() => {
-        tryObserve();
-        if (observed.size === ids.length) {
-          mutationObserver?.disconnect();
-          mutationObserver = null;
-        }
-      });
-      mutationObserver.observe(document.body, { childList: true, subtree: true });
-    }
-
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      observer.disconnect();
-      mutationObserver?.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, [idsKey]);
 

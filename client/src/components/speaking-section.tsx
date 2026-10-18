@@ -30,13 +30,14 @@ export function SpeakingSection() {
           description="Talks and publications on AI, gender equality, and technology in the public sector."
         />
 
-        <div className="mb-20">
+        {/* The gallery fades in as one block. Per-slide fades left the photo peeking in at the edge blank. */}
+        <div className="mb-20 fade-in-view">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {galleryImages.map((image) => (
                 <figure
                   key={image.slug}
-                  className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 fade-in-view"
+                  className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0"
                 >
                   <div className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted group">
                     <ResponsiveImage

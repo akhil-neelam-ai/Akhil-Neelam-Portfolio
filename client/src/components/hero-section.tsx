@@ -21,7 +21,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-background to-background dark:from-accent/15" />
 
       <div className="container max-w-6xl mx-auto px-6 md:px-8 pt-10 pb-20 lg:py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Side by side only from xl: next to the lg sidebar, a half-width column can't fit the name on one line. */}
+        <div className="grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
