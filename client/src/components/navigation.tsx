@@ -25,6 +25,7 @@ export function Navigation() {
   const activeSection = useActiveSection(sectionIds);
   const scrollToSection = useScrollToSection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [heroNameInView, setHeroNameInView] = useState(true);
 
   const handleNav = (sectionId: string) => {
     setIsMobileMenuOpen(false);
@@ -56,6 +57,23 @@ export function Navigation() {
       desktopQuery.removeEventListener("change", onDesktopChange);
     };
   }, [isMobileMenuOpen]);
+
+  // The hero opens with the name and degree in large type, so the mobile header
+  // only repeats them once that has scrolled up under the header.
+  useEffect(() => {
+    const heroName = document.querySelector("#home h1");
+    if (!heroName) {
+      setHeroNameInView(false);
+      return;
+    }
+    const headerHeight = document.getElementById("mobile-header")?.offsetHeight ?? 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroNameInView(entry.isIntersecting),
+      { rootMargin: `-${headerHeight}px 0px 0px 0px` },
+    );
+    observer.observe(heroName);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -112,7 +130,14 @@ export function Navigation() {
         className="lg:hidden fixed top-0 left-0 right-0 z-50 h-mobile-header bg-sidebar border-b border-sidebar-border"
       >
         <div className="flex h-full items-center justify-between px-4">
-          <button type="button" onClick={() => handleNav("home")} className="text-left">
+          <button
+            type="button"
+            onClick={() => handleNav("home")}
+            data-testid="button-header-home"
+            className={`text-left transition-[opacity,visibility] duration-300 motion-reduce:transition-none ${
+              heroNameInView && !isMobileMenuOpen ? "invisible opacity-0" : "opacity-100"
+            }`}
+          >
             <p className="font-serif text-xl font-bold text-sidebar-foreground">
               Akhil Neelam
             </p>
