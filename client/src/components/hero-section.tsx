@@ -29,7 +29,8 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
             className="order-1"
           >
-            <p className="text-sm uppercase tracking-wider text-muted-foreground mb-4 font-sans">
+            {/* Hidden below lg, where the bio's first line and the header bar already say it. */}
+            <p className="hidden lg:block text-sm uppercase tracking-wider text-muted-foreground mb-4 font-sans">
               {profile.eyebrow}
             </p>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-4">
