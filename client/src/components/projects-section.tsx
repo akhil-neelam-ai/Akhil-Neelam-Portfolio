@@ -69,7 +69,7 @@ function ProjectCard({
           aria-hidden="true"
           className="mt-auto pt-4 self-start inline-flex items-center gap-1 text-sm font-medium text-foreground"
         >
-          Read case study
+          Read more
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
         </span>
       </CardContent>
