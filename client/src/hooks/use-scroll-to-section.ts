@@ -2,14 +2,14 @@ import { useCallback } from "react";
 import { analytics } from "@/lib/analytics";
 import { getScrollBehavior } from "@/lib/motion";
 
-const MOBILE_HEADER_OFFSET = 65;
 const SCROLL_WAIT_TIMEOUT_MS = 5000;
 
 export function useScrollToSection() {
   return useCallback((sectionId: string, options?: { track?: boolean }) => {
     const performScroll = (element: HTMLElement) => {
-      const offset =
-        window.innerWidth < 1024 && sectionId !== "home" ? MOBILE_HEADER_OFFSET : 0;
+      // The fixed mobile header is display:none from lg up, so it measures 0 there.
+      const header = document.getElementById("mobile-header");
+      const offset = header ? header.offsetHeight : 0;
       const top = element.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: getScrollBehavior() });
 

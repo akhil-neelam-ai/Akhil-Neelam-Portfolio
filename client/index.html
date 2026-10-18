@@ -2,9 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akhil Neelam | UC Berkeley MBA | Founder | Championing Tech Solutions for Impact</title>
-    
+    <!-- Apply the theme before first paint so dark mode doesn't flash white. Mirrors ThemeProvider. -->
+    <script>
+      (function applyThemeBeforePaint() {
+        try {
+          var theme = localStorage.getItem("portfolio-theme");
+          if (theme === "dark" || ((!theme || theme === "system") && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="description" content="Akhil Neelam is a UC Berkeley Haas MBA student, co-founder of a volunteer-led think tank on gender & politics with 140+ members across 14 countries. Speaker at G20, UN Women, and global forums. Building AI-powered solutions for social impact. Explore his work in product leadership, AI automation, and technology for good." />
     <meta name="keywords" content="Akhil Neelam, UC Berkeley MBA, Haas School of Business, AI, product management, social impact, UN Women, G20 speaker, technology leader, startup founder, gender equality, vibe coding" />
     <meta name="author" content="Akhil Neelam" />

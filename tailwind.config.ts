@@ -83,6 +83,10 @@ export default {
           offline: "rgb(156 163 175)",
         },
       },
+      spacing: {
+        // Fixed mobile header bar; the mobile menu and page top padding sit below it.
+        "mobile-header": "77px",
+      },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],

@@ -43,7 +43,7 @@ export default function Home() {
       <Navigation />
 
       <main className="lg:ml-64">
-        <div className="pt-16 lg:pt-0">
+        <div className="pt-mobile-header lg:pt-0">
           <HeroSection />
           <ErrorBoundary>
             <Suspense fallback={<SectionFallback />}>
@@ -56,9 +56,10 @@ export default function Home() {
             </Suspense>
           </ErrorBoundary>
         </div>
-      </main>
 
-      <BackToTop />
+        {/* Inside main so the open mobile menu makes it inert along with the page. */}
+        <BackToTop />
+      </main>
     </div>
   );
 }

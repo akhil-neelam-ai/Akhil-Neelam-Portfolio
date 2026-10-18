@@ -27,8 +27,9 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleNav = (sectionId: string) => {
-    scrollToSection(sectionId);
     setIsMobileMenuOpen(false);
+    // Scroll on the next frame, once the open menu has released its scroll lock.
+    requestAnimationFrame(() => scrollToSection(sectionId));
   };
 
   useEffect(() => {
@@ -36,8 +37,24 @@ export function Navigation() {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsMobileMenuOpen(false);
     };
+    // The menu is hidden from lg up, so close it if the window widens past that.
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const onDesktopChange = () => {
+      if (desktopQuery.matches) setIsMobileMenuOpen(false);
+    };
+    // Keep the page behind the menu from scrolling or taking keyboard focus.
+    const main = document.querySelector("main");
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    main?.setAttribute("inert", "");
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    desktopQuery.addEventListener("change", onDesktopChange);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      main?.removeAttribute("inert");
+      document.removeEventListener("keydown", onKeyDown);
+      desktopQuery.removeEventListener("change", onDesktopChange);
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -58,7 +75,8 @@ export function Navigation() {
           </button>
         </div>
 
-        <div className="flex-1 py-8 px-4">
+        {/* On short windows the links tighten up, then scroll, so the Resume footer stays visible. */}
+        <div className="flex-1 min-h-0 overflow-y-auto py-8 px-4 [@media(max-height:700px)]:py-4">
           <ul className="space-y-2">
             {navItems.map((item) => (
               <li key={item.id}>
@@ -67,7 +85,7 @@ export function Navigation() {
                   onMouseEnter={() => preloadSection(item.id)}
                   onFocus={() => preloadSection(item.id)}
                   data-testid={`nav-${item.id}`}
-                  className={`w-full text-left px-4 py-3 rounded-md transition-all duration-200 font-sans text-sm tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${
+                  className={`w-full text-left px-4 py-3 [@media(max-height:700px)]:py-2 rounded-md transition-all duration-200 font-sans text-sm tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${
                     activeSection === item.id
                       ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium"
                       : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -89,8 +107,11 @@ export function Navigation() {
         </div>
       </nav>
 
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-sidebar border-b border-sidebar-border">
-        <div className="flex items-center justify-between p-4">
+      <div
+        id="mobile-header"
+        className="lg:hidden fixed top-0 left-0 right-0 z-50 h-mobile-header bg-sidebar border-b border-sidebar-border"
+      >
+        <div className="flex h-full items-center justify-between px-4">
           <button type="button" onClick={() => handleNav("home")} className="text-left">
             <p className="font-serif text-xl font-bold text-sidebar-foreground">
               Akhil Neelam
@@ -120,7 +141,7 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 top-[65px] z-40 bg-sidebar"
+            className="lg:hidden fixed inset-0 top-mobile-header z-40 bg-sidebar overflow-y-auto overscroll-contain"
           >
             <div className="p-6">
               <ul className="space-y-2">

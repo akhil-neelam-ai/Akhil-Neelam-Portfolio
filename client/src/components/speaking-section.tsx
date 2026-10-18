@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { ResponsiveImage } from "@/components/responsive-image";
 import { SectionHeader } from "@/components/section-header";
 import {
@@ -14,7 +15,7 @@ import useEmblaCarousel from "embla-carousel-react";
 const SPEAKING_WIDTHS = [800, 1200];
 
 export function SpeakingSection() {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
     dragFree: true,
@@ -29,27 +30,50 @@ export function SpeakingSection() {
           description="Talks and publications on AI, gender equality, and technology in the public sector."
         />
 
-        <div className="mb-20 overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-4">
-            {galleryImages.map((image) => (
-              <figure
-                key={image.slug}
-                className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 fade-in-view"
-              >
-                <div className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted group">
-                  <ResponsiveImage
-                    basePath={`/images/speaking/${image.slug}`}
-                    widths={SPEAKING_WIDTHS}
-                    alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 30vw"
-                  />
-                  <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-white text-sm font-sans">
-                    {image.caption}
-                  </figcaption>
-                </div>
-              </figure>
-            ))}
+        <div className="mb-20">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {galleryImages.map((image) => (
+                <figure
+                  key={image.slug}
+                  className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_30%] min-w-0 fade-in-view"
+                >
+                  <div className="aspect-[16/10] relative rounded-xl overflow-hidden border border-border bg-muted group">
+                    <ResponsiveImage
+                      basePath={`/images/speaking/${image.slug}`}
+                      widths={SPEAKING_WIDTHS}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 30vw"
+                    />
+                    <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 text-white text-sm font-sans">
+                      {image.caption}
+                    </figcaption>
+                  </div>
+                </figure>
+              ))}
+            </div>
+          </div>
+          {/* Dragging is easy to miss without a touchscreen, so give mouse and keyboard users buttons. */}
+          <div className="mt-4 flex justify-center gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => emblaApi?.scrollPrev()}
+              aria-label="Previous photo"
+              data-testid="button-gallery-prev"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => emblaApi?.scrollNext()}
+              aria-label="Next photo"
+              data-testid="button-gallery-next"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
 
