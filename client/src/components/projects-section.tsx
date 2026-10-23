@@ -9,20 +9,27 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { ArrowRight, ExternalLink, Github, Code, Sparkles } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/section-header";
 import { sideProjects, type SideProject } from "@/data/projects";
 import { analytics } from "@/lib/analytics";
+import { cn } from "@/lib/utils";
 
 function ProjectCard({
   project,
   onOpen,
+  featured = false,
+  className,
 }: {
   project: SideProject;
   onOpen: (card: HTMLElement) => void;
+  featured?: boolean;
+  className?: string;
 }) {
   const titleId = `project-title-${project.id}`;
   const descriptionId = `project-description-${project.id}`;
+  const statsId = `project-stats-${project.id}`;
+  const stats = featured ? project.stats : undefined;
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -37,34 +44,54 @@ function ProjectCard({
       tabIndex={0}
       aria-haspopup="dialog"
       aria-labelledby={titleId}
-      aria-describedby={descriptionId}
-      className="h-full cursor-pointer hover-elevate transition-all duration-300 group fade-in-view focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      aria-describedby={stats ? `${descriptionId} ${statsId}` : descriptionId}
+      className={cn(
+        "h-full cursor-pointer hover-elevate transition-all duration-300 group fade-in-view focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        className
+      )}
       onClick={(event) => onOpen(event.currentTarget)}
       onKeyDown={handleKeyDown}
       data-testid={`card-project-${project.id}`}
     >
-      <CardContent className="p-6 h-full flex flex-col">
-        <div className="flex items-start gap-4 mb-4">
-          <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-            <Code className="w-6 h-6 text-accent-foreground" />
-          </div>
-          <div className="flex-1">
-            <h3
-              id={titleId}
-              className="font-serif text-lg font-semibold text-foreground mb-1"
-              data-testid={`text-project-title-${project.id}`}
-            >
-              {project.title}
-            </h3>
-          </div>
-        </div>
+      <CardContent className={cn("h-full flex flex-col", featured ? "p-6 md:p-8" : "p-6")}>
+        {featured ? (
+          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Latest build</p>
+        ) : null}
+        <h3
+          id={titleId}
+          className={cn(
+            "font-serif font-semibold text-foreground mb-3",
+            featured ? "text-2xl md:text-3xl leading-snug" : "text-lg"
+          )}
+          data-testid={`text-project-title-${project.id}`}
+        >
+          {project.title}
+        </h3>
         <p
           id={descriptionId}
-          className="text-muted-foreground text-sm leading-relaxed"
+          className={cn(
+            "text-muted-foreground leading-relaxed max-w-3xl",
+            featured ? "text-base" : "text-sm"
+          )}
           data-testid={`text-project-description-${project.id}`}
         >
           {project.briefDescription}
         </p>
+        {stats?.length ? (
+          <div
+            id={statsId}
+            className="mt-6 pt-5 border-t border-border grid gap-3 sm:grid-cols-3 sm:gap-6 max-w-3xl"
+          >
+            {stats.map((stat) => (
+              <p key={stat.label} className="flex items-baseline gap-3 sm:flex-col sm:gap-1">
+                <span className="w-20 shrink-0 sm:w-auto font-serif text-2xl sm:text-3xl font-bold leading-none text-foreground lining-nums">
+                  {stat.value}
+                </span>{" "}
+                <span className="text-sm text-muted-foreground">{stat.label}</span>
+              </p>
+            ))}
+          </div>
+        ) : null}
         <span
           aria-hidden="true"
           className="mt-auto pt-4 self-start inline-flex items-center gap-1 text-sm font-medium text-foreground"
@@ -206,21 +233,28 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 md:py-32">
-      <div className="container max-w-6xl mx-auto px-6 md:px-8">
+    <section id="projects" className="py-16 md:py-24">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Side Projects"
           description="Each one started with friction I noticed, then a small build to fix it."
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {sideProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onOpen={(card) => handleProjectOpen(project, card)}
-            />
-          ))}
+        <div className="grid md:grid-cols-2 gap-6">
+          {sideProjects.map((project, index) => {
+            const featured = index === 0;
+            // The featured card fills the first row, so an even count leaves the last card alone on its row.
+            const lastOnItsOwn = index === sideProjects.length - 1 && index % 2 === 1;
+            return (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                featured={featured}
+                className={featured || lastOnItsOwn ? "md:col-span-2" : undefined}
+                onOpen={(card) => handleProjectOpen(project, card)}
+              />
+            );
+          })}
         </div>
 
         <ProjectModal

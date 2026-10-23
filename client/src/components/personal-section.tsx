@@ -6,14 +6,14 @@ export function PersonalSection() {
   const scrollToSection = useScrollToSection();
 
   return (
-    <section id="personal" className="py-20 md:py-32 bg-muted/30">
-      <div className="container max-w-6xl mx-auto px-6 md:px-8">
+    <section id="personal" className="py-16 md:py-24 bg-muted/30">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Personal"
           description="Always building, always tinkering. Here's what keeps me inspired and grounded."
         />
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10">
           {interests.map((item, index) => {
             const Icon = item.icon;
             return (

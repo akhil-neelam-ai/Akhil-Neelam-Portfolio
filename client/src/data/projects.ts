@@ -74,8 +74,10 @@ export type SideProject = {
   productInsightLabel?: string;
   demoLink?: string;
   githubLink?: string;
+  stats?: { value: string; label: string }[];
 };
 
+// Newest first. The first project is shown as the wide "Latest build" card, with its stats.
 export const sideProjects: SideProject[] = [
   {
     id: 6,
@@ -96,6 +98,11 @@ export const sideProjects: SideProject[] = [
       "A decision model doesn't write anything. You give it a situation and a set of typed questions, and it returns probabilities. So most of the work moved from prompting to writing good questions. Each one has to mean exactly one thing, or the probabilities blur.\n\nAsking six smaller questions next to the big one made the score explainable. You can see which part of the match pulled it down. Typed answers also made it testable: I could check every number against a benchmark instead of grading paragraphs.",
     demoLink: "https://worth-applying.vercel.app",
     githubLink: "https://github.com/akhil-neelam-ai/worth-applying",
+    stats: [
+      { value: "101", label: "postings tested" },
+      { value: "93", label: "within 1 point of a reviewer" },
+      { value: "~1 sec", label: "per score" },
+    ],
   },
   {
     id: 1,

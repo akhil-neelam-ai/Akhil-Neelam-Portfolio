@@ -23,8 +23,8 @@ export function SpeakingSection() {
   });
 
   return (
-    <section id="speaking" className="py-20 md:py-32">
-      <div className="container max-w-6xl mx-auto px-6 md:px-8">
+    <section id="speaking" className="py-16 md:py-24">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Speaking & Impact"
           description="Talks and publications on AI, gender equality, and technology in the public sector."

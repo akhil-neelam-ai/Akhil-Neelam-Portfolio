@@ -14,14 +14,14 @@ export function SectionHeader({
   descriptionClassName,
 }: SectionHeaderProps) {
   return (
-    <div className={cn("text-center mb-16 fade-in-view", className)}>
+    <div className={cn("mb-12 fade-in-view", className)}>
       <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
         {title}
       </h2>
       {description ? (
         <p
           className={cn(
-            "text-lg text-muted-foreground max-w-2xl mx-auto",
+            "text-lg text-muted-foreground max-w-2xl",
             descriptionClassName
           )}
         >

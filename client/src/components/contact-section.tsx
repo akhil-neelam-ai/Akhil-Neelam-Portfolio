@@ -6,16 +6,15 @@ import { analytics } from "@/lib/analytics";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-32">
-      <div className="container max-w-4xl mx-auto px-6 md:px-8">
+    <section id="contact" className="py-16 md:py-24">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Let's Connect"
           description="Open to conversations with founders, product leaders, and builders in tech."
-          className="mb-12"
         />
 
         <div className="fade-in-view rounded-xl border border-border bg-card/50 p-8 md:p-12">
-          {/* Two columns at most: the card is capped at max-w-4xl, so a quarter of it is narrower than the email address. */}
+          {/* Two columns at most: even at the widest, a quarter of the card is narrower than the email address. */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col items-center text-center p-4">
               <Mail className="w-6 h-6 text-primary mb-3" />

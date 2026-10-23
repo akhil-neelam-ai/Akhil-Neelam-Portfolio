@@ -4,8 +4,8 @@ import { experiences } from "@/data/experience";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 md:py-32 bg-muted/30">
-      <div className="container max-w-4xl mx-auto px-6 md:px-8">
+    <section id="experience" className="py-16 md:py-24 bg-muted/30">
+      <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Experience Timeline"
           description="From government consulting to founding a think tank—roles where product, policy, and partnerships shipped together."
@@ -40,7 +40,7 @@ export function ExperienceSection() {
                     </div>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">{experience.description}</p>
+                <p className="text-muted-foreground leading-relaxed max-w-3xl">{experience.description}</p>
               </div>
             </article>
           ))}

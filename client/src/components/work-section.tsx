@@ -6,7 +6,7 @@ import { analytics } from "@/lib/analytics";
 
 export function WorkSection() {
   return (
-    <section id="work" className="py-20 md:py-32 bg-muted/30">
+    <section id="work" className="py-16 md:py-24 bg-muted/30">
       <div className="container max-w-5xl mx-auto px-6 md:px-8">
         <SectionHeader
           title="Featured Work"
