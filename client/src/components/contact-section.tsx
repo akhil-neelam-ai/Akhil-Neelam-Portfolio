@@ -15,7 +15,8 @@ export function ContactSection() {
         />
 
         <div className="fade-in-view rounded-xl border border-border bg-card/50 p-8 md:p-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Two columns at most: the card is capped at max-w-4xl, so a quarter of it is narrower than the email address. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex flex-col items-center text-center p-4">
               <Mail className="w-6 h-6 text-primary mb-3" />
               <p className="text-sm text-muted-foreground mb-1">Email</p>

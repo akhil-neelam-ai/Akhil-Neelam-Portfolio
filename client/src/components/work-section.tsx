@@ -24,7 +24,7 @@ export function WorkSection() {
               >
                 <div
                   aria-hidden
-                  className="font-serif text-5xl md:text-6xl font-bold leading-none text-secondary/70 md:pt-1 md:w-24 select-none"
+                  className="font-serif text-5xl md:text-6xl font-bold leading-none text-secondary/70 dark:text-primary/70 md:pt-1 md:w-24 select-none"
                 >
                   {number}
                 </div>
