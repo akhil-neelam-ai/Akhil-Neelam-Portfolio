@@ -85,7 +85,7 @@ export function SpeakingSection() {
               className="flex items-start gap-4 fade-in-view"
               data-testid={`card-speaking-${item.id}`}
             >
-              <div className="w-12 h-12 rounded-lg bg-secondary/70 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
                 <item.icon className="w-6 h-6 text-accent-foreground" />
               </div>
               <div className="flex-1">

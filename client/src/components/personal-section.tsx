@@ -22,7 +22,7 @@ export function PersonalSection() {
                 className="flex items-start gap-4 fade-in-view"
                 data-testid={`card-interest-${index}`}
               >
-                <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
                   <Icon className="w-6 h-6 text-accent-foreground" />
                 </div>
                 <div>

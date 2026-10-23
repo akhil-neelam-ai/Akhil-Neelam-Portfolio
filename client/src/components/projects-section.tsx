@@ -45,7 +45,7 @@ function ProjectCard({
     >
       <CardContent className="p-6 h-full flex flex-col">
         <div className="flex items-start gap-4 mb-4">
-          <div className="w-12 h-12 rounded-lg bg-secondary/70 flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
             <Code className="w-6 h-6 text-accent-foreground" />
           </div>
           <div className="flex-1">
@@ -102,7 +102,7 @@ function ProjectModal({
       >
         <DialogHeader>
           <div className="flex flex-col gap-3 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-secondary/70 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
               <Sparkles className="w-5 h-5 text-accent-foreground" />
             </div>
             <DialogTitle className="font-serif text-xl md:text-2xl text-left">
@@ -177,7 +177,7 @@ function ProjectModal({
             <h4 className="font-semibold text-foreground mb-3">Tech Stack</h4>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech) => (
-                <Badge key={tech} variant="secondary">
+                <Badge key={tech} variant="outline">
                   {tech}
                 </Badge>
               ))}
